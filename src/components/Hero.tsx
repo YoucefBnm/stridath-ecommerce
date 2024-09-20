@@ -83,7 +83,7 @@ const HeroBg = () => {
     >
       <img
         fetchPriority="high"
-        className="absolute inset-0 size-full object-cover object-[70%_50%]"
+        className="absolute inset-0 size-full"
         src={heroImageMain}
         srcSet={`${heroImage480} 480w, ${heroImage768} 768w, ${heroImage1920} 1920w`}
         loading="eager"
