@@ -6,7 +6,7 @@ type SetCartItemsProps = {
   cartItems: CartItemProps[];
   itemToAdd: ProductProps;
   selectedColor: number;
-  selectedSize: number | undefined;
+  selectedSize: string | undefined;
 };
 type CartItemTarget = {
   cartItems: CartItemProps[];
