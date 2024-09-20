@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    /* outfit-500 - latin */
+    @font-face {
+        font-display: swap;
+        /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 500;
+        /* src: url("./assets/fonts/Outfit-Medium.ttf") format("truetype"); */
+
+        src: url('./assets/fonts/Outfit-Medium.ttf') format('ttf'),
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url('./assets/fonts/Outfit-Medium.ttf') format('truetype');
+        /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+    }
+
+    /* open-sans-regular - latin */
+    @font-face {
+        font-display: swap;
+        /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: url('./assets/fonts/OpenSans-Regular.ttf') format('ttf'),
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url('./assets/fonts/OpenSans-Regular.ttf') format('truetype');
+        /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        @apply leading-tight font-heading;
+    }
+
+    body {
+        @apply font-body
+    }
+}
+
+
+::selection {
+    @apply bg-neutral-950 text-white
+}
+
+
+::-webkit-scrollbar {
+    width: 7.5px;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-zinc-200
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-zinc-200
+}
+
+::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-zinc-900
+}
+
+
+@layer components {
+    .heading-xl {
+        @apply font-heading;
+        font-size: clamp(3.5rem, 4vw + 1.05rem, 7.2rem);
+    }
+
+    .heading-md {
+        @apply font-heading;
+        font-size: clamp(2.55rem, 2vw + 0.75rem, 4.8rem);
+    }
+
+    .heading-base {
+        @apply font-heading;
+
+        font-size: clamp(1.75rem, 1.25vw + 1.25rem, 2.75rem);
+    }
+
+    .heading-title {
+        @apply font-heading;
+
+        @apply font-heading uppercase text-xs;
+
+    }
+}
+
+@layer utilities {
+    .px-default {
+        @apply px-6 md:px-8 lg:px-12
+    }
+}
+
+img,
+figure,
+picture,
+video,
+button,
+label,
+input {
+    @apply select-none
+}
+
+.section-container {
+    @apply grid grid-cols-12
+}
+
+.filter-group {
+    @apply flex py-2 justify-center items-center relative;
+}
+
+.group-gender,
+.group-category,
+.group-brand,
+.group-badge,
+.group-colors {
+    @apply w-28
+}
+
+.group-sizes {
+    @apply size-10;
+}
+
+.group-colors {
+    @apply items-center justify-start gap-x-2 py-0.5 px-0
+}
+
+.input-colors {
+    @apply relative size-6 border-none rounded-sm border border-neutral-300
+}
+
+.header {
+    @apply bg-white px-default sticky z-50 inset-0 w-full h-16 justify-between border-b border-neutral-100
+}
+
+.header-desktop {
+    @apply flex items-center
+}
+
+
+.header-mobile {
+    @apply flex items-center
+}
+
+.indic-size {
+    @apply w-12 h-9 xl:w-16 xl:h-12
+}
+
+.section-col-xl {
+    @apply col-span-12 md:col-span-6 row-start-1 col-start-1
+}
+
+.section-col-md {
+    @apply col-span-12 row-start-2 md:col-span-5 md:col-start-8 md:row-start-1
+}
+
+.flex-center {
+    @apply flex justify-center items-center
+}
+
+.form-layout {
+    @apply flex flex-col gap-4
+}
+
+.link {
+    @apply text-sm font-heading capitalize transition-opacity hover:bg-opacity-65
+}
+
+.card-image {
+    @apply object-contain absolute bottom-4 max-h-[50%] mt-auto max-w-[65%] left-1/2 -translate-x-1/2 pointer-events-none
+}
