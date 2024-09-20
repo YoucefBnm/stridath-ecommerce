@@ -21,7 +21,7 @@ module.exports = {
     extend: {
       fontFamily: {
         heading: ["Outfit", "sans-serif"],
-        body: ['Open Sans"', "sans-serif"],
+        body: ['"Open Sans"', "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
