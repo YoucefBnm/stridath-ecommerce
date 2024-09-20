@@ -30,7 +30,7 @@ const Seo = ({ title, description, thumbImage, children }: SeoProps) => {
       />
       <meta
         property="og:image"
-        content={thumbImage ? thumbImage : "../../assets/images/fb-thumb.jpg"}
+        content={thumbImage ? thumbImage : "/thumb.jpg"}
       />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
