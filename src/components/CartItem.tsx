@@ -16,11 +16,11 @@ const CartItemGroup = ({
   value,
 }: {
   segment: string;
-  value: string;
+  value: string | number;
 }) => {
   return (
     <div
-      title={value}
+      title={value.toString()}
       className="flex gap-2 w-full  font-heading text-sm capitalize"
     >
       <p className="text-neutral-500 ">{segment}:</p>
