@@ -40,6 +40,10 @@
         @apply leading-tight font-heading;
     }
 
+    html {
+        @apply scroll-smooth
+    }
+
     body {
         @apply font-body
     }
