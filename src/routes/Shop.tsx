@@ -31,6 +31,7 @@ const Shop = () => {
         description={`Explore ${category ? category : "all"} shoes from ${
           brand ? brand : "top brands"
         } at Actifeet. Find the perfect footwear for your active lifestyle.`}
+        url="https://actifeet.netlify.app/shop/"
       />
       <main className="relative py-12">
         <section className="px-default section-container">

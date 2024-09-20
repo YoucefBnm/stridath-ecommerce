@@ -5,9 +5,10 @@ type SeoProps = PropsWithChildren & {
   title: string;
   description: string;
   thumbImage?: string;
+  url?: string;
 };
 
-const Seo = ({ title, description, thumbImage, children }: SeoProps) => {
+const Seo = ({ title, description, thumbImage, url, children }: SeoProps) => {
   return (
     <Helmet>
       <title>{title}</title>
@@ -32,7 +33,7 @@ const Seo = ({ title, description, thumbImage, children }: SeoProps) => {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
 
-      <meta property="og:url" content="https://actifeet.netlify.app" />
+      <meta property="og:url" content={url || "https://actifeet.netlify.app"} />
       <meta property="og:type" content="website" />
 
       {/* Twitter */}

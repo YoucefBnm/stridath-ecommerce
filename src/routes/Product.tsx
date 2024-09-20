@@ -17,6 +17,7 @@ const Product = () => {
         }`}
         description={`${product?.name} ${activeColor}`}
         thumbImage={product?.images[activeColor].imagesUrls[0]}
+        url={`https://actifeet.netlify.app/product/${product?.id}`}
       />
       <main>
         {product ? (

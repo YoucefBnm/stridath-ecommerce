@@ -23,6 +23,7 @@ const Checkout = () => {
       <Seo
         title="Actifeet | Checkout"
         description="Review your cart and complete your purchase securely at Actifeet"
+        url="https://actifeet.netlify.app/checkout"
       />
       <main>
         <section className="py-12 px-default">
