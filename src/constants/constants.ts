@@ -10,6 +10,13 @@ import {
   HeroMainImage768,
 } from "@/assets";
 
+export const defaultFormFields = {
+  displayName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
+
 export const heroContent = {
   title: "Discover a wide range of athletic shoes",
   heading: "Elevate your Step",
