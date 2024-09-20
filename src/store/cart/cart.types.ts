@@ -24,7 +24,7 @@ export type CartItemProps = {
   brand: string;
   name: string;
   price: number | string;
-  size: string;
+  size: number;
   color: string;
   mainImage: string;
   quantity: number;
