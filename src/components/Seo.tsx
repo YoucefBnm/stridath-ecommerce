@@ -28,10 +28,7 @@ const Seo = ({ title, description, thumbImage, children }: SeoProps) => {
         property="og:description"
         content="Shop Actifeet for top-tier athletic shoes designed for running, cross-training, climbing, and hiking. Elevate your performance with our durable and comfortable footwear collection."
       />
-      <meta
-        property="og:image"
-        content={thumbImage ? thumbImage : "/thumb.jpg"}
-      />
+      <meta property="og:image" content={thumbImage || "/thumb.jpg"} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
 
@@ -48,10 +45,7 @@ const Seo = ({ title, description, thumbImage, children }: SeoProps) => {
         property="twitter:description"
         content="Discover Actifeet's premium athletic footwear for running, cross-training, climbing, and hiking. Achieve new heights with our high-performance shoes."
       />
-      <meta
-        property="twitter:image"
-        content={thumbImage ? thumbImage : "../../assets/images/fb-thumb.jpg"}
-      />
+      <meta property="twitter:image" content={thumbImage || "/thumb.jpg"} />
       <meta property="twitter:image:width" content="1200" />
       <meta property="twitter:image:height" content="600" />
 
