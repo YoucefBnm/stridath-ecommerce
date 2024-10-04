@@ -33,12 +33,12 @@ const Home = () => {
       >
         <HeroTitle />
         <HeroBg />
-        <HeroHeading />
+        <HeroHeading className="max-w-[12ch]" />
         <motion.div variants={transformVariants()} className="flex gap-4">
           <Button
             variant={"secondary"}
             size={"lg"}
-            className="rounded-full font-heading text-xs uppercase"
+            className="font-heading text-xs uppercase"
           >
             <Link
               className="block size-full place-content-center"
@@ -52,7 +52,7 @@ const Home = () => {
           <Button
             variant={"secondary"}
             size={"lg"}
-            className="rounded-full font-heading text-xs uppercase"
+            className="font-heading text-xs uppercase"
           >
             <Link
               className="block size-full place-content-center"
