@@ -34,7 +34,7 @@ const CategoryWrap = memo(function CategoryWrap({
       <motion.div
         ref={revealRef}
         className="section-container"
-        transition={{ staggerChildren: 0.25 }}
+        transition={{ staggerChildren: 0.15, staggerDirection: -1 }}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
