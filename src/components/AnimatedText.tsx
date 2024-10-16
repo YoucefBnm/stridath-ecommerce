@@ -16,12 +16,14 @@ type AnimatedTextProps = {
   text: string;
   className?: string;
   tag: TagKeys;
+  direction?: "left" | "right" | "bottom" | "top";
 };
 
 const AnimatedText: React.FC<AnimatedTextProps> = ({
   text,
   className,
   tag,
+  direction,
 }) => {
   const words = text.split(" ");
   const Tag = motion(tags[tag]);
@@ -30,7 +32,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   return (
     <motion.div
       className={cn(
-        "inline-flex whitespace-nowrap flex-wrap overflow-hidden",
+        "inline-flex relative whitespace-nowrap flex-wrap overflow-hidden",
         className
       )}
       ref={revealRef}
@@ -41,7 +43,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
       {words.map((word, index) => (
         <Tag
           key={`${word}-${index}`}
-          variants={transformVariants("bottom")}
+          variants={transformVariants(direction || "bottom")}
           transition={{ ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 }}
         >
           {word}&nbsp;

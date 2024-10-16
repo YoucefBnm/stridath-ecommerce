@@ -1,9 +1,5 @@
 // IMAGES
 import HeroMainImage from "./images/hero-main.jpg?w=1920&h=1080&format=webp&meta&imagetools";
-import HeroMainImage1600 from "./images/hero-main.jpg?w=1600&h=900&format=webp&meta&imagetools";
-import HeroMainImage1024 from "./images/hero-main.jpg?w=1024&h=575&format=webp&meta&imagetools";
-import HeroMainImage768 from "./images/hero-main-768.jpg?w=744&h=1133&format=webp&meta&imagetools";
-import HeroMainImage480 from "./images/hero-main-430.jpg?w=430&h=932&format=webp&meta&imagetools";
 
 import CategoryMenImage from "./images/category-men.jpg?w=900&h=1200&format=webp&meta&imagetools";
 import CategoryWomenImage from "./images/category-women.jpg?w=900&h=1200&format=webp&meta&imagetools";
@@ -13,6 +9,9 @@ import CategoryRunningImage from "./images/category-run.jpg?w=920&h=1280&format=
 import CategoryHikingImage from "./images/category-hiking.jpg?w=920&h=1280&format=webp&meta&imagetools";
 import CategoryCrossImage from "./images/category-cross.jpg?w=920&h=1280&format=webp&meta&imagetools";
 import CategoreyClimbingImage from "./images/category-climb.jpg?w=920&h=1280&format=webp&meta&imagetools";
+
+import HeroRunningImage from "./images/hero-run.jpg?w=1920&h=1080&format=webp&meta&imagetools";
+
 // ICONS
 import IconAdd from "./icons/icon-add.svg";
 import IconCart from "./icons/icon-cart.svg";
@@ -26,12 +25,9 @@ import LogoLight from "./icons/logo-light.svg";
 
 export {
   Logo,
+  HeroRunningImage,
   LogoLight,
   HeroMainImage,
-  HeroMainImage1600,
-  HeroMainImage1024,
-  HeroMainImage768,
-  HeroMainImage480,
   CategoryMenImage,
   CategoryWomenImage,
   CategorySportsImage,

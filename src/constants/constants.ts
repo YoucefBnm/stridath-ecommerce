@@ -4,10 +4,8 @@ import {
   CategoryCrossImage,
   CategoryHikingImage,
   CategoryRunningImage,
+  HeroRunningImage,
   HeroMainImage,
-  HeroMainImage1600,
-  HeroMainImage480,
-  HeroMainImage768,
 } from "@/assets";
 
 export const defaultFormFields = {
@@ -20,10 +18,7 @@ export const defaultFormFields = {
 export const heroContent = {
   title: "Discover a wide range of athletic shoes",
   heading: "Elevate your Step",
-  heroImageMain: HeroMainImage,
-  heroImage480: HeroMainImage480,
-  heroImage768: HeroMainImage768,
-  heroImage1920: HeroMainImage1600,
+  heroBg: HeroMainImage,
 };
 
 export const sports = {
@@ -67,11 +62,10 @@ export const hikingCategoryContent = {
 };
 
 export const runningCategoryContent = {
-  title: "running",
-  heading: "Feel the run thrill",
+  heading: "Feel the thrill of the run",
   description:
     "Designed to enhance your running experience, whether you're a seasoned marathoner or a beginner hitting the pavement for the first time. From responsive cushioning to lightweight designs, our shoes are engineered to provide optimal support.",
-  image: CategoryRunningImage,
+  image: HeroRunningImage,
 };
 
 export const climbingCategoryContent = {

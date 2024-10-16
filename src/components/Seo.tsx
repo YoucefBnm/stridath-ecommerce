@@ -34,11 +34,6 @@ const Seo = ({ title, description, thumbImage, url, children }: SeoProps) => {
       <meta property="og:image:height" content="630" />
 
       <meta property="og:url" content={url || "https://actifeet.netlify.app"} />
-      <meta property="og:image" content={thumbImage || "/thumb.jpg"} />
-      <meta name="og:image" content={thumbImage || "/thumb.jpg"} />
-      <meta name="og:width" content="1200" />
-      <meta name="og:height" content="630" />
-      <meta name="og:image" content={thumbImage || "/thumb.jpg"} />
       <meta property="og:type" content="website" />
 
       {/* Twitter */}
@@ -51,8 +46,9 @@ const Seo = ({ title, description, thumbImage, url, children }: SeoProps) => {
         property="twitter:description"
         content="Discover Actifeet's premium athletic footwear for running, cross-training, climbing, and hiking. Achieve new heights with our high-performance shoes."
       />
-      <meta name="twitter:image" content={thumbImage || "/thumb.jpg"} />
       <meta property="twitter:image" content={thumbImage || "/thumb.jpg"} />
+      <meta property="twitter:image:width" content="1200" />
+      <meta property="twitter:image:height" content="600" />
 
       {children}
     </Helmet>

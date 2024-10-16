@@ -51,12 +51,13 @@ const ProductsCarousel = memo(
     return (
       <section
         ref={revealRef}
-        className="section-container grid-rows-[min-content_1fr] px-default py-12 place-content-center"
+        className="section-container grid-rows-[min-content_1fr] px-default py-12 place-content-center relative"
       >
         <AnimatedText
           tag="heading4"
           text={title}
-          className="heading-title row-span-1 col-start-1 col-span-4 mb-4"
+          className="heading-title row-start-2 row-span-1 col-start-1 col-span-4 mb-4 inline-flex flex-nowrap"
+          direction="right"
         />
 
         <Carousel
@@ -65,7 +66,7 @@ const ProductsCarousel = memo(
             axis: "x",
             skipSnaps: true,
           }}
-          className="w-full col-span-12 md:col-span-11  col-start-1 md:col-start-2 row-start-2"
+          className="w-full col-span-11 col-start-2  row-start-2"
         >
           <div className="flex justify-between items-baseline mb-4">
             <div className="flex relative gap-2">
@@ -85,7 +86,7 @@ const ProductsCarousel = memo(
                 </div>
               }
             >
-              <CarouselContent className="">
+              <CarouselContent>
                 {loadCarouselProducts &&
                   carouselProducts.map((product) => (
                     <CarouselItem

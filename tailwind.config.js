@@ -20,8 +20,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        heading: ["Outfit", "sans-serif"],
-        body: ['"Open Sans"', "sans-serif"],
+        heading: ["Rubik", "sans-serif"],
+        body: ["Barlow", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

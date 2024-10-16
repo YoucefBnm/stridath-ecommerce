@@ -5,50 +5,48 @@
 @layer base {
 
     /* outfit-500 - latin */
+    /* rubik-regular - latin */
     @font-face {
         font-display: swap;
         /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-        font-family: 'Outfit';
-        font-style: normal;
-        font-weight: 500;
-        /* src: url("./assets/fonts/Outfit-Medium.ttf") format("truetype"); */
-
-        src: url('./assets/fonts/Outfit-Medium.ttf') format('ttf'),
-            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-            url('./assets/fonts/Outfit-Medium.ttf') format('truetype');
-        /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
-    }
-
-    /* open-sans-regular - latin */
-    @font-face {
-        font-display: swap;
-        /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-        font-family: 'Open Sans';
+        font-family: 'Rubik';
         font-style: normal;
         font-weight: 400;
-        src: url('./assets/fonts/OpenSans-Regular.ttf') format('ttf'),
-            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-            url('./assets/fonts/OpenSans-Regular.ttf') format('truetype');
-        /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+        src: url('./assets/fonts/Rubik-Regular.ttf') format('woff2');
+        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-        @apply leading-tight font-heading font-medium;
+    /* rubik-500 - latin */
+    @font-face {
+        font-display: swap;
+        /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 500;
+        src: url('./assets/fonts/Rubik-Medium.ttf') format('woff2');
+        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
     }
 
-    html {
-        @apply scroll-smooth
+    /* barlow-regular - latin */
+    @font-face {
+        font-display: swap;
+        /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Barlow';
+        font-style: normal;
+        font-weight: 400;
+        src: url('./assets/fonts/Barlow-Regular.ttf') format('woff2');
+        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
     }
 
-    body {
-        @apply font-body
-    }
 }
 
+html {
+    @apply scroll-smooth
+}
+
+body {
+    @apply font-body
+}
 
 ::selection {
     @apply bg-neutral-950 text-white
@@ -56,42 +54,34 @@
 
 
 ::-webkit-scrollbar {
-    width: 7.5px;
+    width: 5.5px;
 }
+
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-zinc-200
-}
-
-::-webkit-scrollbar-track {
-    @apply bg-zinc-200
-}
-
-::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-zinc-900
+    @apply bg-zinc-900
 }
 
 
 @layer components {
     .heading-xl {
-        @apply font-heading;
+        @apply font-heading font-medium leading-tight;
         font-size: clamp(3.5rem, 4vw + 1.05rem, 7.2rem);
     }
 
     .heading-md {
-        @apply font-heading;
+        @apply font-heading font-medium;
         font-size: clamp(2.55rem, 2vw + 0.75rem, 4.8rem);
     }
 
     .heading-base {
-        @apply font-heading;
-
+        @apply font-heading leading-tight;
         font-size: clamp(1.75rem, 1.25vw + 1.25rem, 2.75rem);
     }
 
     .heading-title {
-        @apply font-heading uppercase text-xs;
-
+        @apply font-heading uppercase text-sm font-normal tracking-widest text-left whitespace-nowrap -rotate-180 size-min py-4 block;
+        writing-mode: vertical-lr;
     }
 }
 
@@ -177,5 +167,9 @@ input {
 }
 
 .card-image {
-    @apply object-contain absolute bottom-4 max-h-[50%] mt-auto max-w-[65%] left-1/2 -translate-x-1/2 pointer-events-none
+    @apply object-contain absolute bottom-4 max-h-[80%] mt-auto max-w-[80%] left-1/2 -translate-x-1/2 pointer-events-none
+}
+
+.btn-text {
+    @apply font-heading font-normal
 }

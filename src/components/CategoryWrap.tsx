@@ -1,100 +1,139 @@
 import { useRevealAnimation } from "@/hooks/useRevealAnimation";
-import { motion } from "framer-motion";
-import { memo } from "react";
-import { useNavigate } from "react-router-dom";
-import AnimatedText from "./AnimatedText";
 import {
-  easeTransition,
   clipPathVariants,
+  easeTransition,
   transformVariants,
 } from "@/utils/motion";
+import { cn } from "@/utils/shadcn";
+import { motion } from "framer-motion";
+import { createContext, PropsWithChildren, useContext } from "react";
+import AnimatedText from "./AnimatedText";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
+import InfoTitle from "./InfoTitle";
 
-interface CategoryWrapProps {
+type CategoryWrapProps = PropsWithChildren & {
   title: string;
-  imageUrl: string;
+  imageUrl?: string;
   heading: string;
   description: string;
   route: string;
+  className?: string;
+};
+type CategoryWrapContextValue = {
+  title: string;
+  imageUrl?: string;
+  heading: string;
+  description: string;
+  route: string;
+};
+
+const CategoryWrapContext = createContext<CategoryWrapContextValue | undefined>(
+  undefined
+);
+function useCategoryWrapContext() {
+  const context = useContext(CategoryWrapContext);
+  if (context === undefined) {
+    throw new Error(
+      "useCategoryWrapContext must be used within a CategoryWrapContextProvider"
+    );
+  }
+  return context;
 }
 
-const CategoryWrap = memo(function CategoryWrap({
-  title,
-  imageUrl,
-  heading,
-  description,
-  route,
-}: CategoryWrapProps) {
+const CategoryWrap = (props: CategoryWrapProps) => {
+  const { title, imageUrl, heading, description, route, className, children } =
+    props;
   const { revealRef, isInView } = useRevealAnimation();
-  const navigate = useNavigate();
-  const navigateToPage = () => navigate(route);
 
   return (
-    <section className="px-default py-12 ">
-      <motion.div
-        ref={revealRef}
-        className="section-container"
-        transition={{ staggerChildren: 0.15, staggerDirection: -1 }}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <AnimatedText
-          tag="heading4"
-          text={title}
-          className="mb-2 col-start-1 col-span-3 row-start-1 heading-title"
-        />
+    <CategoryWrapContext.Provider
+      value={{ title, imageUrl, heading, description, route }}
+    >
+      <section className="px-default py-12">
         <motion.div
-          transition={{ ease: easeTransition, duration: 0.8 }}
-          variants={clipPathVariants}
-          className="row-start-2 col-start-1 md:col-start-2 md:col-span-4 col-span-8 md:mb-0 mb-4"
+          ref={revealRef}
+          className={cn("section-container relative items-start", className)}
+          transition={{ delayChildren: 0.2, staggerChildren: 0.15 }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
-          <picture className="size-full">
-            <img
-              loading="lazy"
-              decoding="async"
-              width={800}
-              height={1000}
-              className="size-full align-middle"
-              src={imageUrl}
-              alt={title}
-            />
-          </picture>
+          {children}
         </motion.div>
-
-        <motion.div
-          className="col-span-10 md:col-span-6 md:col-start-7 row-start-3 col-start-1 md:row-start-2"
-          transition={{ staggerChildren: 0.15 }}
-          variants={transformVariants()}
-        >
-          <AnimatedText
-            tag="heading2"
-            text={heading}
-            className="mb-4 heading-md "
-          />
-          <motion.p
-            className=" max-w-prose md:max-w-sm text-sm  text-gray-600 leading-normal mb-6"
-            variants={transformVariants()}
-            transition={{ ease: "linear" }}
-          >
-            {description}
-          </motion.p>
-          <motion.div
-            variants={transformVariants()}
-            transition={{ ease: "linear" }}
-          >
-            <Button
-              onClick={navigateToPage}
-              className="btn-text rounded-full"
-              size={"lg"}
-              variant={"default"}
-            >
-              Shop Now
-            </Button>
-          </motion.div>
-        </motion.div>
-      </motion.div>
-    </section>
+      </section>
+    </CategoryWrapContext.Provider>
   );
-});
+};
 
-export default CategoryWrap;
+const CategoryTitle = () => {
+  const { title } = useCategoryWrapContext();
+  return <InfoTitle title={title} className="row-start-1 col-start-1" />;
+};
+
+type CategoryImageProps = {
+  className?: string;
+};
+const CategoryImage = ({ className }: CategoryImageProps) => {
+  const { imageUrl, title } = useCategoryWrapContext();
+  return (
+    <motion.div
+      className={cn(
+        "md:col-start-8 md:row-start-1 md:col-span-5 col-span-10 col-start-2",
+        className
+      )}
+      transition={{ ease: easeTransition, duration: 2 }}
+      variants={clipPathVariants}
+    >
+      <img
+        loading="lazy"
+        decoding="async"
+        width={800}
+        height={1000}
+        className="sze-full align-middle"
+        src={imageUrl}
+        alt={title || "workout"}
+      />
+    </motion.div>
+  );
+};
+
+type CategoryTextProps = {
+  className?: string;
+};
+const CategoryText = ({ className }: CategoryTextProps) => {
+  const { heading, description, route } = useCategoryWrapContext();
+  const navigate = useNavigate();
+  const navigateToPage = () => navigate(route);
+  return (
+    <div
+      className={cn(
+        "col-span-10 col-start-2 row-start-1 md:col-span-5 mb-6 md:mb-0",
+        className
+      )}
+    >
+      <AnimatedText tag="heading2" text={heading} className="mb-4 heading-md" />
+      <motion.p
+        className="mb-6"
+        variants={transformVariants()}
+        transition={{ ease: "linear", delay: 0.5 }}
+      >
+        {description}
+      </motion.p>
+      <motion.div
+        variants={transformVariants()}
+        transition={{ ease: "linear", delay: 0.7 }}
+      >
+        <Button
+          onClick={navigateToPage}
+          aria-label={`navigate to ${route} page`}
+          className="btn-text"
+          size={"lg"}
+        >
+          Shop Collection
+        </Button>
+      </motion.div>
+    </div>
+  );
+};
+
+export { CategoryWrap, CategoryTitle, CategoryImage, CategoryText };

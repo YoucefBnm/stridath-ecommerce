@@ -37,7 +37,7 @@ const ProductCardImages = memo(function (props: ProductImagesProps) {
               <motion.div
                 key={0}
                 variants={transformVariants()}
-                className="absolute inset-0 size-full bg-white bg-origin-content origin-bottom pointer-events-none"
+                className="absolute inset-0 size-full bg-white origin-bottom"
                 exit="hidden"
               >
                 <img
@@ -45,7 +45,7 @@ const ProductCardImages = memo(function (props: ProductImagesProps) {
                   height={320}
                   loading="lazy"
                   alt="sport shoes"
-                  className="card-image pointer-events-none"
+                  className="card-image"
                   src={productImage.imagesUrls[0]}
                 />
               </motion.div>
@@ -59,7 +59,7 @@ const ProductCardImages = memo(function (props: ProductImagesProps) {
                     : "hidden"
                 }
                 // transition={{ ease: easeTransition, duration: 0.5 }}
-                className="absolute inset-0 size-full bg-white pointer-events-none"
+                className="absolute inset-0 size-full bg-white"
                 exit="hidden"
               >
                 <img
@@ -68,7 +68,7 @@ const ProductCardImages = memo(function (props: ProductImagesProps) {
                   key={1}
                   loading="lazy"
                   alt="sport shoes"
-                  className="card-image pointer-events-none"
+                  className="card-image"
                   src={productImage.imagesUrls[1]}
                 />
               </motion.div>
@@ -86,7 +86,7 @@ const ProductCardColors = memo(function ProductCardColors(
   const { productId, productColors, activeColor, setActiveColor } = props;
 
   return (
-    <div className="flex gap-2 px-4 my-4">
+    <div className="flex gap-2 px-4 mt-4">
       {productColors.map((productColor, index) => (
         <span
           key={productColor}
@@ -116,7 +116,7 @@ const ProductCardDetails = memo(function ProductCardDetails(
 
   return (
     <div
-      className="flex flex-col px-4 gap-1 max-w-full items-start"
+      className="flex flex-col px-4 my-2 max-w-full items-start"
       aria-label={`navigate to ${productName} page`}
     >
       <h4
@@ -126,7 +126,7 @@ const ProductCardDetails = memo(function ProductCardDetails(
         {productName}
       </h4>
       <h5
-        className="text-xs text-neutral-500 capitalize text-ellipsis truncate"
+        className="text-xs font-body font-normal text-neutral-500 capitalize text-ellipsis truncate"
         title={`${productGender} ${productCategory} ${productBrand}`}
       >
         {productGender} {productCategory} {productBrand}
@@ -142,10 +142,10 @@ const ProductCard = memo(function ProductCard({ product }: ProductCardProps) {
   return (
     <div
       title={product.name}
-      className="flex rounded-md overflow-hidden flex-col relative"
+      className="flex overflow-hidden flex-col relative"
     >
-      <div className="overflow-hidden bg-white w-full aspect-[16/9] md:aspect-[16/12] relative flex flex-col items-start justify-between gap-8">
-        <div className=" size-full bg-neutral-500 z-10 bg-opacity-5 absolute inset-0 pointer-events-none" />
+      <div className="overflow-hidden bg-white w-full aspect-[16/10] md:aspect-[16/12] relative flex flex-col items-start justify-between gap-8">
+        <div className=" size-full bg-black z-10 bg-opacity-5 absolute inset-0 pointer-events-none" />
         <div className="flex items-center h-5 ">
           {product.badge && (
             <Badge className="rounded-none py-px text-xs font-normal border-none">
@@ -160,22 +160,19 @@ const ProductCard = memo(function ProductCard({ product }: ProductCardProps) {
           handleMouse={handleMouse}
         />
       </div>
-      <div className="bg-neutral-500 pb-4 bg-opacity-5">
-        <ProductCardColors
-          productId={product.id}
-          productColors={product.colors}
-          activeColor={activeColor}
-          setActiveColor={handleColorChange}
-        />
-        <ProductPrice price={product.price} discount={product.discount} />
-
-        <ProductCardDetails
-          productName={product.name}
-          productGender={product.gender}
-          productCategory={product.category}
-          productBrand={product.brand}
-        />
-      </div>
+      <ProductCardColors
+        productId={product.id}
+        productColors={product.colors}
+        activeColor={activeColor}
+        setActiveColor={handleColorChange}
+      />
+      <ProductCardDetails
+        productName={product.name}
+        productGender={product.gender}
+        productCategory={product.category}
+        productBrand={product.brand}
+      />
+      <ProductPrice price={product.price} discount={product.discount} />
     </div>
   );
 });

@@ -18,8 +18,8 @@ const Footer = () => {
             />
           </div>
           <p className=" text-xs text-zinc-300">
-            Explore our collections and find the perfect pair of shoes to
-            elevate your athletic performance.
+            Actifeet has the perfect footwear to match your active lifestyle,
+            Whether you're hitting the trails, the gym, or the mountains.
           </p>
           <small className="text-xs text-zinc-400">
             &copy;2024 Developed by{" "}

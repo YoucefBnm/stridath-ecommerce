@@ -6,7 +6,7 @@ import { Badge } from "./ui/badge";
 const ProductPrice = memo(function ProductCardPrice(props: ProductPriceProps) {
   const { price, discount } = props;
   return (
-    <div className="flex my-2 px-4 text-base justify-between items-end">
+    <div className="flex px-4 text-base justify-between items-end">
       {discount ? (
         <>
           <div className="flex text-xs md:text-base items-center gap-2 w-full">
