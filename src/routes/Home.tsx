@@ -27,8 +27,8 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
-  const navigateToMenShop = () => navigate("/shop/category/men");
-  const navigateToWomenShop = () => navigate("/shop/category/women");
+  const navigateToMenShop = () => navigate("/shop/men");
+  const navigateToWomenShop = () => navigate("/shop/women");
   const navigateToRunningShop = () => navigate("/shop/category/running");
   return (
     <>
