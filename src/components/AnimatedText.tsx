@@ -1,53 +1,41 @@
-import { useRevealAnimation } from "@/hooks/useRevealAnimation";
-import { transformVariants } from "@/utils/motion";
+import {
+  easeTransitions,
+  TransformDirectionType,
+  transformVariants,
+} from "@/utils/motion";
 import { cn } from "@/utils/shadcn";
 import { motion } from "framer-motion";
 
-const tags = {
-  paragraph: "p",
-  heading1: "h1",
-  heading2: "h2",
-  heading3: "h3",
-  heading4: "h4",
-} as const;
-
-type TagKeys = keyof typeof tags;
 type AnimatedTextProps = {
   text: string;
+  direction?: TransformDirectionType;
   className?: string;
-  tag: TagKeys;
-  direction?: "left" | "right" | "bottom" | "top";
 };
-
-const AnimatedText: React.FC<AnimatedTextProps> = ({
-  text,
-  className,
-  tag,
-  direction,
-}) => {
+const AnimatedText = ({ text, direction, className }: AnimatedTextProps) => {
   const words = text.split(" ");
-  const Tag = motion(tags[tag]);
 
-  const { isInView, revealRef } = useRevealAnimation();
   return (
     <motion.div
       className={cn(
-        "inline-flex relative whitespace-nowrap flex-wrap overflow-hidden",
+        "overflow-hidden text-nowrap leading-none flex flex-wrap",
         className
       )}
-      ref={revealRef}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      transition={{ staggerChildren: 0.2 }}
     >
       {words.map((word, index) => (
-        <Tag
-          key={`${word}-${index}`}
-          variants={transformVariants(direction || "bottom")}
-          transition={{ ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 }}
-        >
-          {word}&nbsp;
-        </Tag>
+        <span key={`${word}-${index}`} className="inline-block overflow-hidden">
+          <motion.span
+            className="inline-block"
+            variants={transformVariants(direction)}
+            transition={{
+              duration: 0.4,
+              delay: index * 0.2,
+              ease: easeTransitions["default"],
+            }}
+          >
+            {word}
+            {index !== words.length - 1 && "\u00A0"}
+          </motion.span>
+        </span>
       ))}
     </motion.div>
   );

@@ -48,21 +48,6 @@ body {
     @apply font-body
 }
 
-::selection {
-    @apply bg-neutral-950 text-white
-}
-
-
-::-webkit-scrollbar {
-    width: 5.5px;
-}
-
-
-::-webkit-scrollbar-thumb {
-    @apply bg-zinc-900
-}
-
-
 @layer components {
     .heading-xl {
         @apply font-heading font-medium leading-tight;

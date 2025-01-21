@@ -2,7 +2,11 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
     "moduleResolution": "bundler",
@@ -17,18 +21,47 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@constants/*": ["src/constants/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@libs/*": ["src/libs/*"],
-      "@routes/*": ["src/routes/*"],
-      "@sections/*": ["src/sections/*"],
-      "@store/*": ["src/store/*"],
-      "types": ["vite/client", "@types/react", "@types/react-dom"]
+      "@/*": [
+        "src/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@constants/*": [
+        "src/constants/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@libs/*": [
+        "src/libs/*"
+      ],
+      "@routes/*": [
+        "src/routes/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@store/*": [
+        "src/store/*"
+      ],
+      "types": [
+        "vite/client",
+        "@types/react",
+        "@types/react-dom"
+      ]
     }
   },
-  "include": ["src", "src/global.d.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src",
+    "src/global.d.ts"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
