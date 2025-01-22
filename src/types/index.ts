@@ -1,118 +1,60 @@
-import { Params } from "react-router";
-import { UserData } from "@/firebase/types";
-import { Control, FieldPath } from "react-hook-form";
-import { z } from "zod";
-import { authFormSchema } from "@/utils/authFormSchema.utils";
+export interface ProductSizeProps {
+  size: string;
+  quantity: number;
+}
+export interface ProductColorsProps {
+  id: string;
+  color: string;
+  images: string[];
+  sizes: ProductSizeProps[];
+}
+export interface ReviewProps {
+  userId: string;
+  displayName: string;
+  reviewText: string;
+  rating: number;
+  date: string;
+}
 export interface ProductProps {
   id: string;
   gender: "men" | "women";
-  category: "running" | "cross training" | "hiking" | "climbing";
+  sport: "running" | "training" | "hiking" | "climbing";
   brand: string;
   name: string;
-  amazonLink: string;
-  badge?: "best seller" | "new" | "sale";
   price: number;
-  discount?: number | undefined;
-  sizes: number[];
-  colors: string[];
-  images: {
-    id: string;
-    color: string;
-    imagesUrls: string[];
-  }[];
+  availableColors: string[];
+  sizes: string[];
+  colors: ProductColorsProps[];
+  reviews: ReviewProps[];
   details: string[];
+  features: string[];
+  realeaseDate: string;
+  isFeatured: boolean;
+  isOnsale: boolean;
+  salePrice: number;
 }
 
-export interface ProductCardProps {
-  product: ProductProps;
-}
-export interface ProductImagesProps {
-  productImages: ProductProps["images"];
+export interface ProductCardImagesProps {
+  productImages: ProductProps["colors"];
   activeColor: number;
   activeImage: number;
   handleMouse: (event: "enter" | "leave") => void;
 }
-export interface ProductColorsProps {
+export interface ProductCardColorsProps {
   productId: ProductProps["id"];
-  productColors: ProductProps["colors"];
+  productColors: ProductProps["availableColors"];
   activeColor: number;
   setActiveColor: (index: number) => void;
 }
-
-export interface ProductDetailsProps {
+export interface ProductCardDetailsProps {
   productName: ProductProps["name"];
   productGender: ProductProps["gender"];
-  productCategory: ProductProps["category"];
+  productSport: ProductProps["sport"];
   productBrand: ProductProps["brand"];
 }
 
-export type ProductPriceProps = {
+export interface ProductPriceProps {
   price: ProductProps["price"];
-  discount?: ProductProps["discount"];
-};
-
-export type ProductsCarouselProps = {
-  title: string;
-  route: string;
-  params: Readonly<Params<string>>;
-};
-
-export type FilterItemProps = {
-  type: string;
-  label: string;
-  isChecked: boolean;
-  handleChange: (checked: boolean) => void;
-};
-
-export type ProductItemDetailsProps = {
-  product: ProductProps;
-  activeColor: number;
-  handleColorChange: (index: number) => void;
-};
-
-export interface ProductItemSegmentsProps {
-  gender: ProductProps["gender"];
-  category: ProductProps["category"];
-  brand: ProductProps["brand"];
-  badge?: ProductProps["badge"];
-}
-
-export type ProductItemSizesProps = {
-  sizes: ProductProps["sizes"];
-  selectedSize: number | undefined;
-  setSelectedSize: (size: number) => void;
-};
-
-export type ProductItemColorsProps = {
-  colors: ProductProps["images"];
-  activeColor: number;
-  handleMouseEnter: (index: number) => void;
-};
-
-export type ProductItemDescriptionProps = { details: ProductProps["details"] };
-
-export interface ProductItemImageIndicProps {
-  layoutId: string;
-  imageUrl: string;
-  index: number;
-  activeColor: number;
-  handleMouseEnter: (index: number) => void;
-}
-export interface UserAvatarProps {
-  currentUser: UserData;
-}
-
-const formSchema = authFormSchema("signup");
-export interface AuthInputProps {
-  control: Control<z.infer<typeof formSchema>>;
-  name: FieldPath<z.infer<typeof formSchema>>;
-  label: string;
-  placeholder: string;
-}
-
-export interface AuthInputProps {
-  control: Control<z.infer<typeof formSchema>>;
-  name: FieldPath<z.infer<typeof formSchema>>;
-  label: string;
-  placeholder: string;
+  salePrice: ProductProps["salePrice"];
+  isOnSale: ProductProps["isOnsale"];
 }

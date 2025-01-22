@@ -4,7 +4,6 @@ export const easeTransitions = {
   opacity: [0.25, 0.1, 0.25, 1], // Smoother ease transition for opacity
   clipPath: [0.6, 0.04, 0.98, 0.335], // Smoother ease transition for clip path
 };
-
 export type TransformDirectionType = "top" | "bottom" | "left" | "right" | "z";
 export const transformVariants = (direction?: TransformDirectionType) => ({
   hidden: {
@@ -20,3 +19,12 @@ export const transformVariants = (direction?: TransformDirectionType) => ({
     opacity: 1,
   },
 });
+
+export const clipPathVariants = {
+  visible: {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+  },
+  hidden: {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0px)",
+  },
+};

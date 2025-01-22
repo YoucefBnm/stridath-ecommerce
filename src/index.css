@@ -152,7 +152,7 @@ input {
 }
 
 .card-image {
-    @apply object-contain absolute bottom-4 max-h-[80%] mt-auto max-w-[80%] left-1/2 -translate-x-1/2 pointer-events-none
+    @apply object-contain absolute bottom-8 max-h-[70%] mt-auto max-w-[80%] left-1/2 -translate-x-1/2 pointer-events-none
 }
 
 .btn-text {

@@ -1,3 +1,4 @@
+import { SHOP_DATA } from "@/assets/data";
 import {
   Hero,
   HeroBg,
@@ -7,6 +8,8 @@ import {
 } from "@/components/Hero";
 import { Button } from "@/components/ui/button";
 import { heroContent } from "@/constants/heroContent";
+import ProductCard from "@/features/product/ProductCard";
+import Sports from "@/layouts/Sports";
 
 const Home = () => {
   return (
@@ -25,6 +28,12 @@ const Home = () => {
         </HeroCta>
         <HeroBg className="object-right-bottom" />
       </Hero>
+      <Sports />
+      <div className="p-12">
+        <div className=" w-72">
+          <ProductCard product={SHOP_DATA[1]} />
+        </div>
+      </div>
     </>
   );
 };

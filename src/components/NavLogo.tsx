@@ -4,8 +4,8 @@ const NavLogo = () => {
   return (
     <Link className="block" to="/">
       <img
-        width={150}
-        height={31}
+        width={121}
+        height={25}
         alt="stridath logo"
         src={Logo}
         className="inline-block align-middle"

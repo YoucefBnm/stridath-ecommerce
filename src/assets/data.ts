@@ -1,6 +1,7 @@
+import { ProductProps } from "@/types";
 import { v4 as uuidv4 } from "uuid";
 
-export const SHOP_DATA = [
+export const SHOP_DATA: ProductProps[] = [
   {
     id: uuidv4().toString().replace(/-/g, ""),
     gender: "men",
@@ -8,7 +9,7 @@ export const SHOP_DATA = [
     brand: "under armour",
     name: "project rock 4",
     price: 100,
-    aivalableColors: ["beige"],
+    availableColors: ["beige"],
     sizes: ["6", "7", "8", "9"],
     colors: [
       {
@@ -71,7 +72,7 @@ export const SHOP_DATA = [
     brand: "nike",
     name: "flex experience 12",
     price: 120.99,
-    aivalableColors: ["beige", "lightblue"],
+    availableColors: ["beige", "lightblue"],
     sizes: ["5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9"],
     colors: [
       {
@@ -154,7 +155,7 @@ export const SHOP_DATA = [
     ],
     realeaseDate: "02-01-2025",
     isFeatured: true,
-    isOnsale: false,
+    isOnsale: true,
     salePrice: 70,
   },
   {
@@ -164,7 +165,7 @@ export const SHOP_DATA = [
     brand: "nike",
     name: "flex experience 12",
     price: 120.99,
-    aivalableColors: ["black"],
+    availableColors: ["black"],
     sizes: ["7", "7.5", "8", "8.5", "9", "9.5", "10", "11", "12"],
     colors: [
       {
@@ -238,7 +239,7 @@ export const SHOP_DATA = [
     brand: "under armour",
     name: "project rock 4",
     price: 100,
-    aivalableColors: ["beige"],
+    availableColors: ["beige"],
     sizes: ["5", "5.5", "6", "7", "8", "9"],
     colors: [
       {
@@ -303,7 +304,7 @@ export const SHOP_DATA = [
     brand: "under armour",
     name: "project rock 4",
     price: 134.99,
-    aivalableColors: ["black"],
+    availableColors: ["black"],
     sizes: ["7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5"],
     colors: [
       {
@@ -370,7 +371,7 @@ export const SHOP_DATA = [
     brand: "adidas",
     name: "everyset",
     price: 90,
-    aivalableColors: ["green", "darkblue"],
+    availableColors: ["green", "darkblue"],
     sizes: ["5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10"],
     colors: [
       {
@@ -462,7 +463,7 @@ export const SHOP_DATA = [
     brand: "adidas",
     name: "adizero",
     price: 120,
-    aivalableColors: ["darkblue"],
+    availableColors: ["darkblue"],
     sizes: ["5", "5.5", "6", "7", "8", "9"],
     colors: [
       {
@@ -513,7 +514,7 @@ export const SHOP_DATA = [
     brand: "red chili",
     name: "clue",
     price: 123.71,
-    aivalableColors: ["black"],
+    availableColors: ["black"],
     sizes: ["8.5", "9", "9.5", "10", "11", "12", "12.5", "13"],
     colors: [
       {
@@ -577,7 +578,7 @@ export const SHOP_DATA = [
     brand: "scarpa",
     name: "arpia v",
     price: 168.95,
-    aivalableColors: ["black"],
+    availableColors: ["black"],
     sizes: [
       "6.5",
       "7",
@@ -646,7 +647,7 @@ export const SHOP_DATA = [
     brand: "salomon",
     name: "outpulse goretex",
     price: 121.42,
-    aivalableColors: ["grey"],
+    availableColors: ["grey"],
     sizes: ["7", "7.5", "8.5"],
     colors: [
       {
@@ -709,7 +710,7 @@ export const SHOP_DATA = [
     brand: "salomon",
     name: "scene ride 5",
     price: 106.15,
-    aivalableColors: ["blue"],
+    availableColors: ["blue"],
     sizes: ["10.5", "13"],
     colors: [
       {
@@ -764,7 +765,7 @@ export const SHOP_DATA = [
     brand: "salomon",
     name: "elixir active gtx",
     price: 155,
-    aivalableColors: ["black"],
+    availableColors: ["black"],
     sizes: [
       "7",
       "7.5",
