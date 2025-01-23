@@ -15,7 +15,7 @@ const ShopNavCheckedFilters = () => {
           checkedFilters[key]?.map((filter) => (
             <Badge
               key={filter}
-              className="rounded-sm pr-5 text-xs inline-flex gap-2 capitalize relative"
+              className="rounded-sm last-of-type:m-0 first-of-type:m-0 m-1 pr-5 text-xs capitalize relative"
             >
               {filter}
               <button

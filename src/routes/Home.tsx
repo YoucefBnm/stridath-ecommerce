@@ -38,7 +38,7 @@ const Home = () => {
       <Sports />
       <div className="p-12">
         <div className=" w-72">
-          <ProductCard product={SHOP_DATA[26]} />
+          <ProductCard product={SHOP_DATA[72]} />
         </div>
         <Spinner />
       </div>

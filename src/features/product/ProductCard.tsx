@@ -96,7 +96,7 @@ const ProductCardColors: FC<ProductCardColorsProps> = ({
           {index === activeColor && (
             <motion.div
               layoutId={productId}
-              className="border-[1px] border-neutral-500 rounded-full w-5 h-5 absolute -top-[3px] -left-[3px]"
+              className="border-[1px] border-neutral-500 rounded-full size-[18px] absolute -top-[2px] -left-[2px]"
               transition={{ type: "spring", stiffness: 500, damping: 50 }}
             />
           )}
@@ -142,7 +142,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     <Link
       className="block"
       title={product.name}
-      to=""
+      to={`/product/${product.id}`}
       aria-label={`navigate to ${product.name} page`}
     >
       <div className="overflow-hidden bg-white w-full aspect-square relative flex flex-col items-start justify-between gap-8">

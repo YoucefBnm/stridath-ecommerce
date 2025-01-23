@@ -1,12 +1,12 @@
 import { FilterKeys, SHOP_FILTERS } from "@/constants/shopFilters";
-import { useFetchShopProducts } from "@/hooks/useFetchShopProducts";
-import { Fragment } from "react/jsx-runtime";
 import ShopNavFilter from "./ShopNavFilter";
 import { useSetFilterParams } from "@/hooks/useSetFiltersParams";
 import { Separator } from "@/components/ui/separator";
+import { useParams } from "react-router-dom";
+import { Fragment } from "react/jsx-runtime";
 
 const ShopNavFilters = () => {
-  const { params } = useFetchShopProducts();
+  const params = useParams();
   const filterKey = Object.values(params).join("");
   const { addValue, removeValue, getCheckedFilters } = useSetFilterParams();
   const checkedFilters = getCheckedFilters();

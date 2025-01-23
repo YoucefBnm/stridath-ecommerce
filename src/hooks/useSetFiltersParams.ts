@@ -1,4 +1,3 @@
-// import { filtersType } from "@/firebase/types";
 import { useSearchParams } from "react-router-dom";
 
 type filtersKeyType =
