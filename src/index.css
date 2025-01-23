@@ -60,7 +60,7 @@ body {
     }
 
     .heading-base {
-        @apply font-heading leading-tight;
+        @apply font-heading font-normal leading-tight;
         font-size: clamp(1.75rem, 1.25vw + 1.25rem, 2.75rem);
     }
 
@@ -91,27 +91,20 @@ input {
 }
 
 .filter-group {
-    @apply flex py-2 justify-center items-center relative;
+    @apply flex p-3 justify-center items-center relative bg-gray-200;
 }
 
-.group-gender,
-.group-category,
-.group-brand,
-.group-badge,
-.group-colors {
-    @apply w-28
-}
 
 .group-sizes {
     @apply size-10;
 }
 
 .group-colors {
-    @apply items-center justify-start gap-x-2 py-0.5 px-0
+    @apply bg-transparent items-center justify-start gap-x-2 py-0.5 px-0
 }
 
 .input-colors {
-    @apply relative size-6 border-none rounded-sm border border-neutral-300
+    @apply relative size-6 rounded-full border border-gray-100
 }
 
 .header {

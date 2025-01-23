@@ -12,7 +12,7 @@ const SHOP_COLLECTION_INITIAL_STATE: ShopCollectionStateType = {
   products: [],
   lastVisible: undefined,
   count: null,
-  selectedSortOption: "suggested",
+  selectedSortOption: "featured",
   isFetching: false,
   error: null,
 };

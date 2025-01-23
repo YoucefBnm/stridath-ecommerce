@@ -1,15 +1,15 @@
-import { loadMoreStart } from "@/store/shopCollection/shopCollection.action";
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useFetchShopProducts } from "./useFetchShopProducts";
+import { useSetSortOption } from "./useSetSortOption";
+import { useSetFilterParams } from "./useSetFiltersParams";
 import {
   selectCount,
   selectIsFetching,
   selectLastVisible,
   selectShopCollectionProducts,
 } from "@/store/shopCollection/shopCollection.selector";
-import { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useFetchShopProducts } from "./useFetchShopProducts";
-import { useSetSortOption } from "./useSetSortOption";
-import { useSetFilterParams } from "./useSetFiltersParams";
+import { loadMoreStart } from "@/store/shopCollection/shopCollection.action";
 
 export function useLoadProducts() {
   const observerRef = useRef(null);

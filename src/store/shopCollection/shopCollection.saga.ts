@@ -6,21 +6,11 @@ import {
   loadMoreProductsSuccess,
 } from "./shopCollection.action";
 import { SHOP_COLLECTION_TYPES } from "./shopCollection.types";
-import { SortOptionsTypes, filtersType } from "@/firebase/types";
-import { Params } from "react-router-dom";
-import { DocumentData } from "firebase/firestore";
+import { fetchOptions } from "@/firebase/types";
 import { TakeableChannel } from "redux-saga";
 
 type fetchAsyncPayload = {
-  payload: {
-    params: Readonly<
-      Params<"gender" | "category" | "brand" | "badge" | "sizes" | "colors">
-    >;
-    sortOption: keyof SortOptionsTypes;
-    limitNumber: number;
-    filters: filtersType;
-    lastVisible: DocumentData | undefined;
-  };
+  payload: fetchOptions;
 };
 
 function* fetchShopProductsAsync({

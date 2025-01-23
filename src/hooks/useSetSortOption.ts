@@ -1,4 +1,4 @@
-import { SortOptionsTypes, sortOption } from "@/firebase/types";
+import { sortOption, SortOptionsTypes } from "@/firebase/types";
 import { useSearchParams } from "react-router-dom";
 
 export function useSetSortOption() {

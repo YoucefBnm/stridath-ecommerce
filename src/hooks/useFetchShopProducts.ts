@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import { useSetFilterParams } from "./useSetFiltersParams";
-import { fetchProductsStart } from "@/store/shopCollection/shopCollection.action";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSetSortOption } from "./useSetSortOption";
+import { fetchProductsStart } from "@/store/shopCollection/shopCollection.action";
 
 export function useFetchShopProducts() {
   const { getCheckedFilters } = useSetFilterParams();

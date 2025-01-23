@@ -3,11 +3,11 @@ import { useWindowWidth } from "@react-hook/window-size/throttled";
 import NavMobile from "@layouts/NavMobile";
 import NavDesktop from "@layouts/NavDesktop";
 import { useScrollToTop } from "./hooks/useScrollToTop";
-import { useCheckUserSession } from "./hooks/useCheckUserSession";
+// import { useCheckUserSession } from "./hooks/useCheckUserSession";
 import { lazy } from "react";
 
 const Home = lazy(() => import("@routes/Home"));
-
+const Shop = lazy(() => import("@routes/Shop"));
 const MainNav = () => {
   const windowWidth = useWindowWidth();
 
@@ -16,12 +16,17 @@ const MainNav = () => {
 
 function App() {
   useScrollToTop();
-  useCheckUserSession();
+  // useCheckUserSession();
+
   return (
     <>
       <Routes>
         <Route path="/" element={<MainNav />}>
           <Route index element={<Home />} />
+          <Route
+            path="/shop/:gender?/sport?/:sport?/brand?/:brand?"
+            element={<Shop />}
+          />
         </Route>
       </Routes>
     </>

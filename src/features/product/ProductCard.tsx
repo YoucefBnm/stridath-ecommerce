@@ -45,7 +45,7 @@ const ProductCardImages: FC<ProductCardImagesProps> = ({
                 <img
                   alt={``}
                   className="card-image"
-                  src={productImage.images[0]}
+                  src={productImage.imagesUrl[0]}
                 />
               </motion.div>
               <motion.div
@@ -63,7 +63,7 @@ const ProductCardImages: FC<ProductCardImagesProps> = ({
                 <img
                   alt={``}
                   className="card-image"
-                  src={productImage.images[1]}
+                  src={productImage.imagesUrl[1]}
                   loading="lazy"
                 />
               </motion.div>
@@ -113,7 +113,7 @@ const ProductCardDetails: FC<ProductCardDetailsProps> = ({
   productBrand,
 }) => {
   return (
-    <div className="flex flex-col px-4 gap-0.5 my-4 max-w-full items-start">
+    <div className="flex flex-col px-4 my-2 max-w-full items-start">
       <h4
         title={productName}
         className="font-heading w-full text-left text-sm uppercase text-ellipsis truncate"
@@ -146,9 +146,9 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       aria-label={`navigate to ${product.name} page`}
     >
       <div className="overflow-hidden bg-white w-full aspect-square relative flex flex-col items-start justify-between gap-8">
-        <div className="size-full rounded-sm bg-black bg-opacity-5 z-10 absolute inset-0 pointer-events-none" />
+        <div className="size-full rounded-sm bg-gray-500 bg-opacity-5 z-10 absolute inset-0 pointer-events-none" />
         <ProductCardImages
-          productImages={product.colors}
+          productImages={product.images}
           activeColor={activeColor}
           activeImage={activeImage}
           handleMouse={handleMouse}
@@ -156,7 +156,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       </div>
       <ProductCardColors
         productId={product.id}
-        productColors={product.availableColors}
+        productColors={product.colors}
         activeColor={activeColor}
         setActiveColor={handleColorChange}
       />
@@ -169,7 +169,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       <ProductPrice
         price={product.price}
         salePrice={product.salePrice}
-        isOnSale={product.isOnsale}
+        isOnSale={product.sale}
       />
     </Link>
   );

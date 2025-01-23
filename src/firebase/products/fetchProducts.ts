@@ -1,32 +1,26 @@
 import {
-  QueryFieldFilterConstraint,
-  QueryFilterConstraint,
   and,
-  doc,
   getCountFromServer,
-  getDoc,
   getDocs,
   limit,
   or,
   query,
+  QueryFieldFilterConstraint,
+  QueryFilterConstraint,
   startAfter,
 } from "firebase/firestore";
-import { FetchOptions, fetchSuccessResponse, filtersType } from "../types";
-import {
-  collectionRef,
-  filterQueries,
-  sortOptions,
-} from "./products.controller";
+import { fetchOptions, fetchSuccessResponse, filtersType } from "../types";
+import { collectionRef, filterQueries, sortOptions } from "./services";
 import { ProductProps } from "@/types";
 
 export const fetchProducts = async (
-  options: FetchOptions
+  options: fetchOptions
 ): Promise<fetchSuccessResponse> => {
   const { params, sortOption, limitNumber, filters, lastVisible } = options;
 
   const sortQuery = sortOption
     ? sortOptions[sortOption]
-    : sortOptions["suggested"];
+    : sortOptions["featured"];
   const limitQuery = limit(limitNumber);
 
   const getFiltersParams: Array<QueryFilterConstraint> = [];
@@ -40,7 +34,7 @@ export const fetchProducts = async (
           const filterItem = { [filterKey]: filterValue };
           const checkedFilters = Object.values(
             filterQueries(filterItem)
-          )?.filter(Boolean) as QueryFieldFilterConstraint[];
+          ) as QueryFieldFilterConstraint[];
           getFiltersParams.push(...checkedFilters);
         });
       }
@@ -50,20 +44,19 @@ export const fetchProducts = async (
   const paramsQuery = Object.values(getParamsQuery).filter(
     Boolean
   ) as QueryFieldFilterConstraint[];
-  const allParams = and(...paramsQuery, or(...getFiltersParams));
+  const allParms = and(...paramsQuery, or(...getFiltersParams));
 
   const q = lastVisible
     ? query(
         collectionRef,
-        allParams,
+        allParms,
         sortQuery,
         startAfter(lastVisible),
         limitQuery
       )
-    : query(collectionRef, allParams, sortQuery, limitQuery);
+    : query(collectionRef, allParms, sortQuery, limitQuery);
 
   const documentSnapshot = await getDocs(q);
-
   const products: ProductProps[] = [];
 
   documentSnapshot.docs.forEach((doc) => {
@@ -71,7 +64,7 @@ export const fetchProducts = async (
   });
 
   const count = (
-    await getCountFromServer(query(collectionRef, allParams, sortQuery))
+    await getCountFromServer(query(collectionRef, allParms, sortQuery))
   ).data().count;
 
   const lastVisibleIndex = documentSnapshot.docs.length - 1;
@@ -82,16 +75,4 @@ export const fetchProducts = async (
     count,
     lastVisibleItem,
   };
-};
-
-export const fetchProductItem = async (
-  productId: string
-): Promise<ProductProps | void> => {
-  const productDoc = doc(collectionRef, productId);
-
-  const productSnapshot = await getDoc(productDoc);
-
-  if (productSnapshot.exists()) {
-    return productSnapshot.data() as ProductProps;
-  }
 };

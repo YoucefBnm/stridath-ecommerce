@@ -6,12 +6,15 @@ import {
   HeroDescription,
   HeroHeading,
 } from "@/components/Hero";
+import Spinner from "@/components/Spinner";
 import { Button } from "@/components/ui/button";
 import { heroContent } from "@/constants/heroContent";
 import ProductCard from "@/features/product/ProductCard";
+// import { useAddProudcts } from "@/hooks/useAddProduts";
 import Sports from "@/layouts/Sports";
 
 const Home = () => {
+  // useAddProudcts();
   return (
     <>
       <Hero
@@ -22,7 +25,11 @@ const Home = () => {
         <HeroHeading className="md:w-[11ch]" />
         <HeroDescription />
         <HeroCta link="/shop/men" label="shop men">
-          <Button variant="secondary" size="lg">
+          <Button
+            className="uppercase font-heading font-medium rounded-sm"
+            variant="secondary"
+            size="lg"
+          >
             Shop Women
           </Button>
         </HeroCta>
@@ -31,8 +38,9 @@ const Home = () => {
       <Sports />
       <div className="p-12">
         <div className=" w-72">
-          <ProductCard product={SHOP_DATA[1]} />
+          <ProductCard product={SHOP_DATA[26]} />
         </div>
+        <Spinner />
       </div>
     </>
   );

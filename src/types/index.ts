@@ -5,7 +5,7 @@ export interface ProductSizeProps {
 export interface ProductColorsProps {
   id: string;
   color: string;
-  images: string[];
+  imagesUrl: string[];
   sizes: ProductSizeProps[];
 }
 export interface ReviewProps {
@@ -15,34 +15,37 @@ export interface ReviewProps {
   rating: number;
   date: string;
 }
+
+export type genderType = "men" | "women";
+export type sportType = "running" | "training" | "hiking" | "climbing";
 export interface ProductProps {
   id: string;
-  gender: "men" | "women";
-  sport: "running" | "training" | "hiking" | "climbing";
+  gender: genderType;
+  sport: sportType;
   brand: string;
   name: string;
   price: number;
-  availableColors: string[];
+  colors: string[];
   sizes: string[];
-  colors: ProductColorsProps[];
+  images: ProductColorsProps[];
   reviews: ReviewProps[];
   details: string[];
   features: string[];
   realeaseDate: string;
-  isFeatured: boolean;
-  isOnsale: boolean;
+  featured: boolean;
+  sale: boolean;
   salePrice: number;
 }
 
 export interface ProductCardImagesProps {
-  productImages: ProductProps["colors"];
+  productImages: ProductProps["images"];
   activeColor: number;
   activeImage: number;
   handleMouse: (event: "enter" | "leave") => void;
 }
 export interface ProductCardColorsProps {
   productId: ProductProps["id"];
-  productColors: ProductProps["availableColors"];
+  productColors: ProductProps["colors"];
   activeColor: number;
   setActiveColor: (index: number) => void;
 }
@@ -56,5 +59,5 @@ export interface ProductCardDetailsProps {
 export interface ProductPriceProps {
   price: ProductProps["price"];
   salePrice: ProductProps["salePrice"];
-  isOnSale: ProductProps["isOnsale"];
+  isOnSale: ProductProps["sale"];
 }

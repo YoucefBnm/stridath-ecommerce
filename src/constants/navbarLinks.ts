@@ -39,8 +39,8 @@ export const menLinks: NavSubmenu = {
       links: [
         {
           id: uuidv4(),
-          title: "best seller",
-          route: "/shop/men/badge/best seller",
+          title: "featured",
+          route: "/shop/men/isFeatured/featured",
         },
         {
           id: uuidv4(),
