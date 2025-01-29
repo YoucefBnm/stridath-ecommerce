@@ -1,6 +1,13 @@
-const Spinner = () => {
+import { cn } from "@/utils/shadcn";
+
+const Spinner = ({ className }: { className?: string }) => {
   return (
-    <div className="border-gray-200 animate-spin rounded-full size-6 border-2 inline-block border-t-black" />
+    <div
+      className={cn(
+        "border-gray-200 animate-spin rounded-full size-5 border-2 inline-block border-t-gray-900",
+        className
+      )}
+    />
   );
 };
 

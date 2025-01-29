@@ -8,6 +8,7 @@ import { lazy } from "react";
 
 const Home = lazy(() => import("@routes/Home"));
 const Shop = lazy(() => import("@routes/Shop"));
+const Product = lazy(() => import("@routes/Product"));
 const MainNav = () => {
   const windowWidth = useWindowWidth();
 
@@ -24,9 +25,10 @@ function App() {
         <Route path="/" element={<MainNav />}>
           <Route index element={<Home />} />
           <Route
-            path="/shop/:gender?/sport?/:sport?/brand?/:brand?"
+            path="/shop/:gender?/sport?/:sport?/brand?/:brand?/isfeatured?/:featured?/isonsale?/:sale?"
             element={<Shop />}
           />
+          <Route path="/product/:productId" element={<Product />} />
         </Route>
       </Routes>
     </>

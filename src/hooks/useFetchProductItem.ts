@@ -1,13 +1,13 @@
-import { fetchProductItem } from "@/firebase/products/fetchProducts";
+import { fetchProductItem } from "@/firebase/products/fetchProductItem";
 import { ProductProps } from "@/types";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-// import { toast } from "sonner";
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "sonner";
 
 export function useFetchProductItem() {
   const { productId } = useParams();
   const [product, setProduct] = useState<ProductProps | undefined>();
-  // const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -15,7 +15,9 @@ export function useFetchProductItem() {
 
       if (productItem) setProduct(productItem);
       else {
-        // toast.error('Product out of stock', {action: {label: 'return home', onClick: () => navigate('/')}})
+        toast.error("Product out of stock", {
+          action: { label: "return home", onClick: () => navigate("/") },
+        });
       }
     };
 

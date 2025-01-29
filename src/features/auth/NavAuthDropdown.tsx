@@ -1,0 +1,56 @@
+import { IconUser } from "@/assets";
+import { Button } from "@/components/ui/button";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Separator } from "@/components/ui/separator";
+import { FC } from "react";
+import { Link } from "react-router-dom";
+
+type NavAuthDropdownProps = {
+  title: string;
+  lead: string;
+};
+const NavAuthDropdown: FC<NavAuthDropdownProps> = ({ title, lead }) => {
+  return (
+    <Popover>
+      <PopoverTrigger
+        aria-label="authentication dropdown trigger"
+        className={` ${navigationMenuTriggerStyle()} cursor-pointer py-2 mx-2`}
+      >
+        <img
+          width={24}
+          height={24}
+          aria-label="user auth"
+          src={IconUser}
+          alt="user auth"
+        />
+      </PopoverTrigger>
+
+      <PopoverContent className="flex flex-col mr-4 w-80 py-6 px-4">
+        <h3 className="font-heading capitalize mb-2">{title}</h3>
+        <p className="text-sm text-gray-500">{lead}</p>
+
+        <Separator className="my-4" />
+
+        <div className="flex gap-2 items-stretch">
+          <Button className="rounded-sm w-full" variant={"default"}>
+            <Link className=" font-heading capitalize" to="/auth/signin">
+              Login
+            </Link>
+          </Button>
+          <Button className="rounded-sm w-full" variant={"outline"}>
+            <Link className=" font-heading capitalize" to="/auth/signup">
+              Register
+            </Link>
+          </Button>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+};
+
+export default NavAuthDropdown;

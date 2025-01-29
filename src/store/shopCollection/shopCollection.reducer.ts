@@ -14,6 +14,7 @@ const SHOP_COLLECTION_INITIAL_STATE: ShopCollectionStateType = {
   count: null,
   selectedSortOption: "featured",
   isFetching: false,
+  isLoadingMore: false,
   error: null,
 };
 
@@ -21,14 +22,20 @@ export const shopCollectionReducer = (
   state = SHOP_COLLECTION_INITIAL_STATE,
   action: UnknownAction
 ) => {
-  if (fetchProductsStart.match(action) || loadMoreStart.match(action)) {
+  if (fetchProductsStart.match(action)) {
     return {
       ...state,
       isFetching: true,
       error: null,
     };
   }
-
+  if (loadMoreStart.match(action)) {
+    return {
+      ...state,
+      isLoadingMore: true,
+      error: null,
+    };
+  }
   if (fetchProductsSuccess.match(action)) {
     return {
       ...state,

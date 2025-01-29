@@ -21,23 +21,23 @@ export const subCategoryQuery = (field: string, value: string) =>
 
 export const sortOptions: SortOptionsTypes = {
   featured: orderBy("featured", "desc"),
-  new: orderBy("createdAt", "desc"),
-  sale: orderBy("isOnsale", "desc"),
+  new: orderBy("releaseDate", "desc"),
+  sale: orderBy("sale", "desc"),
   "low to high": orderBy("price", "asc"),
   "high to low": orderBy("price", "desc"),
 };
 
 export const filterQueries = (params: Params<string>) => {
-  const { gender, sport, brand, availableColors, sizes } = params;
+  const { gender, sport, brand, colors, sizes, featured, sale } = params;
 
   const filters: (QueryConstraint | undefined)[] = [
     gender ? where("gender", "==", gender) : undefined,
     sport ? where("sport", "==", sport) : undefined,
     brand ? where("brand", "==", brand) : undefined,
-    availableColors
-      ? where("availableColors", "array-contains-any", availableColors)
-      : undefined,
-    sizes ? where("sizes", "array-contains-any", sizes) : undefined,
+    colors ? where("colors", "array-contains-any", [colors]) : undefined,
+    sizes ? where("sizes", "array-contains-any", [sizes]) : undefined,
+    featured ? where("featured", "==", true) : undefined,
+    sale ? where("sale", "==", true) : undefined,
   ];
 
   return filters.filter(

@@ -31,7 +31,7 @@ export interface ProductProps {
   reviews: ReviewProps[];
   details: string[];
   features: string[];
-  realeaseDate: string;
+  releaseDate: string;
   featured: boolean;
   sale: boolean;
   salePrice: number;
@@ -60,4 +60,5 @@ export interface ProductPriceProps {
   price: ProductProps["price"];
   salePrice: ProductProps["salePrice"];
   isOnSale: ProductProps["sale"];
+  className?: string;
 }

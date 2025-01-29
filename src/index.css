@@ -4,7 +4,6 @@
 
 @layer base {
 
-    /* outfit-500 - latin */
     /* rubik-regular - latin */
     @font-face {
         font-display: swap;
@@ -55,12 +54,12 @@ body {
     }
 
     .heading-md {
-        @apply font-heading font-medium;
+        @apply font-heading font-medium leading-tight;
         font-size: clamp(2.55rem, 2vw + 0.75rem, 4.8rem);
     }
 
     .heading-base {
-        @apply font-heading font-normal leading-tight;
+        @apply font-heading leading-tight;
         font-size: clamp(1.75rem, 1.25vw + 1.25rem, 2.75rem);
     }
 
@@ -121,7 +120,7 @@ input {
 }
 
 .indic-size {
-    @apply w-12 h-9 xl:w-16 xl:h-12
+    @apply size-12 xl:w-16 xl:h-12
 }
 
 .section-col-xl {
@@ -145,7 +144,7 @@ input {
 }
 
 .card-image {
-    @apply object-contain absolute bottom-8 max-h-[70%] mt-auto max-w-[80%] left-1/2 -translate-x-1/2 pointer-events-none
+    @apply object-contain absolute bottom-8 max-h-[50%] mt-auto max-w-[80%] left-1/2 -translate-x-1/2 pointer-events-none
 }
 
 .btn-text {

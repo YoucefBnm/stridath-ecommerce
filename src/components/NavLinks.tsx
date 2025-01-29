@@ -32,7 +32,11 @@ const NavLinkItem = (props: NavSubmenu) => {
                   {submenuItem.links.map((submenuLink) => (
                     <li
                       key={submenuLink.id}
-                      className="font-heading font-medium text-gray-800 text-sm capitalize"
+                      className={`font-heading font-medium ${
+                        submenuLink.title === "sale"
+                          ? "text-red-500"
+                          : "text-gray-800"
+                      } text-sm capitalize`}
                     >
                       <Link to={submenuLink.route}>{submenuLink.title}</Link>
                     </li>
@@ -60,7 +64,7 @@ const NavLinkItem = (props: NavSubmenu) => {
 
 const NavLinks = () => {
   return (
-    <NavigationMenu className="static">
+    <NavigationMenu className="static flex-center flex-1 header-desktop-links">
       <NavigationMenuList>
         <NavLinkItem
           id={menLinks.id}
@@ -83,23 +87,16 @@ const NavLinks = () => {
         <NavigationMenuItem>
           <Link
             className={`${navigationMenuTriggerStyle()} text-sm font-heading uppercase`}
-            to="/shop/isFeatured"
+            to="/shop/isFeatured/featured"
           >
             Featured
           </Link>
         </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link
-            className={`${navigationMenuTriggerStyle()} text-sm font-heading uppercase`}
-            to="/shop/new"
-          >
-            New
-          </Link>
-        </NavigationMenuItem>
+
         <NavigationMenuItem>
           <Link
             className={`${navigationMenuTriggerStyle()} text-sm font-heading uppercase text-red-500`}
-            to="/shop/isOnsale"
+            to="/shop/isOnsale/sale"
           >
             Sale
           </Link>

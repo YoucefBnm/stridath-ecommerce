@@ -1,17 +1,22 @@
 import InfiniteScrollContainer from "@/components/InfiniteScrollContainer";
 import ProductCardSkelton from "@/components/ProductCardSkelton";
 import ProductCard from "@/features/product/ProductCard";
-import { useLoadProducts } from "@/hooks/useLoadProducts";
+import { useLoadMoreProducts } from "@/hooks/useLoadMoreProducts";
 import { useRevealAnimation } from "@/hooks/useRevealAnimation";
+import {
+  selectCount,
+  selectIsLoadingMore,
+} from "@/store/shopCollection/shopCollection.selector";
 import { ProductProps } from "@/types";
 import { transformVariants } from "@/utils/motion";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 
 interface ListCellProps {
   isFetching: boolean;
   product: ProductProps;
 }
-const ListCell = ({ isFetching, product }: ListCellProps) => {
+export const ListCell = ({ isFetching, product }: ListCellProps) => {
   const { revealRef, isInView } = useRevealAnimation();
 
   return (
@@ -38,15 +43,18 @@ const ListCell = ({ isFetching, product }: ListCellProps) => {
 };
 
 const ShopList = () => {
-  const { products, observerRef, allLoaded, isFetching } = useLoadProducts();
-
+  const { products, observerRef, allLoaded, isFetching } =
+    useLoadMoreProducts();
+  const productsCount = useSelector(selectCount);
+  const isLoadingMore = useSelector(selectIsLoadingMore);
   return (
     <InfiniteScrollContainer
       observerRef={observerRef}
       items={products}
-      isFetching={isFetching}
+      isFetching={isLoadingMore}
       allLoaded={allLoaded}
       className="px-default"
+      itemsLength={productsCount}
     >
       {products &&
         products.map((product) => (

@@ -11,7 +11,7 @@ import {
 } from "@/store/shopCollection/shopCollection.selector";
 import { loadMoreStart } from "@/store/shopCollection/shopCollection.action";
 
-export function useLoadProducts() {
+export function useLoadMoreProducts() {
   const observerRef = useRef(null);
 
   const products = useSelector(selectShopCollectionProducts);

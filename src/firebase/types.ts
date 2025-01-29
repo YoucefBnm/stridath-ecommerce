@@ -22,7 +22,7 @@ export type filtersType = {
   sport?: sportType[];
   brand?: string[];
   sizes?: string[];
-  availableColors?: string[];
+  colors?: string[];
 };
 
 export type fetchOptions = {
@@ -37,4 +37,28 @@ export type fetchSuccessResponse = {
   products: ProductProps[];
   count: number;
   lastVisibleItem: DocumentData;
+};
+
+export type AdditionalInfo = {
+  displayName?: string;
+  photoURL?: string;
+};
+
+export type UserData = {
+  createdAt: Date;
+  displayName: string;
+  email: string;
+  photoURL?: string;
+};
+
+export type SearchProductsResponse = {
+  products: ProductProps[];
+  count: number;
+  lastVisibleItem: DocumentData;
+};
+
+export type SearchProductsOptions = {
+  searchQuery: string;
+  limitNumber: number;
+  lastVisible: DocumentData | undefined;
 };

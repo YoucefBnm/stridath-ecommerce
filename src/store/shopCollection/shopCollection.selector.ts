@@ -20,6 +20,11 @@ export const selectIsFetching = createSelector(
   (shopCollectionSlice) => shopCollectionSlice.isFetching
 );
 
+export const selectIsLoadingMore = createSelector(
+  [selectShopCollectionReducer],
+  (shopCollectionSlice) => shopCollectionSlice.isLoadingMore
+);
+
 export const selectCount = createSelector(
   [selectShopCollectionReducer],
   (shopCollectionSlice) => shopCollectionSlice.count

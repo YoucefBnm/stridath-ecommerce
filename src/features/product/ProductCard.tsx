@@ -96,7 +96,7 @@ const ProductCardColors: FC<ProductCardColorsProps> = ({
           {index === activeColor && (
             <motion.div
               layoutId={productId}
-              className="border-[1px] border-neutral-500 rounded-full size-[18px] absolute -top-[2px] -left-[2px]"
+              className="border-[1px] border-gray-500 rounded-full size-[18px] absolute -top-[2px] -left-[2px]"
               transition={{ type: "spring", stiffness: 500, damping: 50 }}
             />
           )}
@@ -167,6 +167,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         productBrand={product.brand}
       />
       <ProductPrice
+        className="px-4"
         price={product.price}
         salePrice={product.salePrice}
         isOnSale={product.sale}

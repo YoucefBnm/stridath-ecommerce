@@ -10,6 +10,9 @@ import CategoryHikingImage from "./images/category-hiking.jpg?w=960&h=1280&forma
 import CategoryClimbingImage from "./images/category-climb.jpg?w=960&h=1280&format=webp&meta&imagetools";
 
 import IconFilter from "./icons/icon-filter.svg";
+import IconUser from "./icons/icon-user.svg";
+import IconSearch from "./icons/icon-search.svg";
+import IconCart from "./icons/icon-cart.svg";
 
 export {
   HeroBgImage,
@@ -22,4 +25,7 @@ export {
   CategoryHikingImage,
   CategoryClimbingImage,
   IconFilter,
+  IconUser,
+  IconSearch,
+  IconCart,
 };

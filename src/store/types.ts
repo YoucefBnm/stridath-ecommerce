@@ -8,5 +8,6 @@ export interface ShopCollectionStateType {
   readonly count: null | number;
   readonly selectedSortOption: sortOption;
   readonly isFetching: boolean;
+  readonly isLoadingMore: boolean;
   readonly error: null | string;
 }

@@ -10,11 +10,13 @@ import Spinner from "@/components/Spinner";
 import { Button } from "@/components/ui/button";
 import { heroContent } from "@/constants/heroContent";
 import ProductCard from "@/features/product/ProductCard";
+import { useCreateProductsFilters } from "@/hooks/useCreateProductsFilters";
 // import { useAddProudcts } from "@/hooks/useAddProduts";
 import Sports from "@/layouts/Sports";
 
 const Home = () => {
   // useAddProudcts();
+  useCreateProductsFilters();
   return (
     <>
       <Hero
@@ -38,7 +40,7 @@ const Home = () => {
       <Sports />
       <div className="p-12">
         <div className=" w-72">
-          <ProductCard product={SHOP_DATA[72]} />
+          <ProductCard product={SHOP_DATA[142]} />
         </div>
         <Spinner />
       </div>
