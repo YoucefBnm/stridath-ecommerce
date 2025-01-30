@@ -1,3 +1,7 @@
+import { Control, FieldPath } from "react-hook-form";
+import { z } from "zod";
+import { authFormSchema } from "@/utils/authFormSchema.utils";
+
 export interface ProductSizeProps {
   size: string;
   quantity: number;
@@ -61,4 +65,12 @@ export interface ProductPriceProps {
   salePrice: ProductProps["salePrice"];
   isOnSale: ProductProps["sale"];
   className?: string;
+}
+
+const formSchema = authFormSchema("signup");
+export interface AuthInputProps {
+  control: Control<z.infer<typeof formSchema>>;
+  name: FieldPath<z.infer<typeof formSchema>>;
+  label: string;
+  placeholder: string;
 }
