@@ -10,13 +10,16 @@ import Spinner from "@/components/Spinner";
 import { Button } from "@/components/ui/button";
 import { heroContent } from "@/constants/heroContent";
 import ProductCard from "@/features/product/ProductCard";
-import { useCreateProductsFilters } from "@/hooks/useCreateProductsFilters";
+// import { useCreateProductsFilters } from "@/hooks/useCreateProductsFilters";
 // import { useAddProudcts } from "@/hooks/useAddProduts";
 import Sports from "@/layouts/Sports";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   // useAddProudcts();
-  useCreateProductsFilters();
+  // useCreateProductsFilters();
+  const navigate = useNavigate();
+  const navigateToWomenShop = () => navigate("/shop/women");
   return (
     <>
       <Hero
@@ -31,6 +34,8 @@ const Home = () => {
             className="uppercase font-heading font-medium rounded-sm"
             variant="secondary"
             size="lg"
+            aria-label="navigate to women page"
+            onClick={navigateToWomenShop}
           >
             Shop Women
           </Button>

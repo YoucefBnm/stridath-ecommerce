@@ -11,13 +11,13 @@ export const sportsContent = [
     id: uuidv4(),
     title: "running",
     image: CategoryRunningImage,
-    route: "/shop/sport/runnining",
+    route: "/shop/sport/running",
   },
   {
     id: uuidv4(),
     title: "training",
     image: CategoryTrainingImage,
-    route: "/shop/sport/cross training",
+    route: "/shop/sport/training",
   },
   {
     id: uuidv4(),

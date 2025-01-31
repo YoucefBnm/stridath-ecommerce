@@ -4,7 +4,6 @@ import { useState } from "react";
 
 const Sports = () => {
   const [activeItem, setActiveItem] = useState<number>(0);
-
   const handleMouseEnter = (index: number) => setActiveItem(index);
 
   return (
