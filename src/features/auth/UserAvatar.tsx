@@ -29,7 +29,7 @@ const UserAvatar: FC<UserAvatarProps> = ({ currentUser }) => {
       )}
 
       <AvatarImage className="rounded-full" src={currentUser.photoURL} />
-      <AvatarFallback className="flex-center bg-gray-900 text-white uppercase font-heading leading-none">
+      <AvatarFallback className="flex-center">
         <span>
           {currentUser.displayName ? currentUser.displayName[0] : "S"}
         </span>

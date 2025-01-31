@@ -1,12 +1,11 @@
 import { CartItemProps } from "@/store/cart/cart.types";
-import { setPrice } from "./price.utils";
 import { ProductProps } from "@/types";
 
 type SetCartItemsProps = {
   cartItems: CartItemProps[];
   itemToAdd: ProductProps;
   selectedColor: number;
-  selectedSize: number | undefined;
+  selectedSize: string | undefined;
 };
 type CartItemTarget = {
   cartItems: CartItemProps[];
@@ -19,9 +18,7 @@ export const addItemToCart = (
 
   return new Promise((resolve, reject) => {
     const cartItemUId = `${itemToAdd.id}-${itemToAdd.images[selectedColor].id}-${selectedSize}`;
-    const finalPrice = itemToAdd.discount
-      ? setPrice(itemToAdd.price, itemToAdd.discount)
-      : setPrice(itemToAdd.price, null);
+    const finalPrice = itemToAdd.sale ? itemToAdd.salePrice : itemToAdd.price;
 
     const existingCartItem = cartItems.find(
       (cartItem) => cartItem.id === cartItemUId
@@ -45,15 +42,17 @@ export const addItemToCart = (
         {
           id: cartItemUId,
           gender: itemToAdd.gender,
-          category: itemToAdd.category,
+          sport: itemToAdd.sport,
           brand: itemToAdd.brand,
           name: itemToAdd.name,
           price: finalPrice,
           size: selectedSize,
           color: itemToAdd["colors"][selectedColor],
-          mainImage: itemToAdd.images[selectedColor].imagesUrls[0],
+          mainImage: itemToAdd.images[selectedColor].imagesUrl[0],
           quantity: 1,
-          link: itemToAdd.id,
+          link: `/product/${itemToAdd.id}`,
+          isOnSale: itemToAdd.sale,
+          salePrice: itemToAdd.salePrice,
         },
       ]);
     }

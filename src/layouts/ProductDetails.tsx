@@ -1,3 +1,4 @@
+import Spinner from "@/components/Spinner";
 import { Button } from "@/components/ui/button";
 import ProductAbout from "@/features/product/ProductAbout";
 import ProductBreadcrumb from "@/features/product/ProductBreadcrumb";
@@ -6,9 +7,12 @@ import ProductFeatures from "@/features/product/ProductFeatures";
 import ProductPrice from "@/features/product/ProductPrice";
 import ProductReview from "@/features/product/ProductReview";
 import ProductSizes from "@/features/product/ProductSizes";
+import { setCartItemsStart } from "@/store/cart/cart.action";
+import { selectCartItems, selectLoading } from "@/store/cart/cart.selector";
 import { ProductProps } from "@/types";
 import { getAverageRating } from "@/utils/getAverageRating";
 import { FC, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 type ProductDetailsProps = {
   product: ProductProps;
@@ -18,8 +22,13 @@ type ProductDetailsProps = {
 const ProductDetails: FC<ProductDetailsProps> = (props) => {
   const { product, activeColor, handleColorChange } = props;
   const [selectedSize, setSelectedSize] = useState<string | undefined>();
-
   const averageRating = getAverageRating(product.reviews);
+
+  const cartItems = useSelector(selectCartItems);
+  const isLoading = useSelector(selectLoading);
+  const dispatch = useDispatch();
+  const addItemToCart = () =>
+    dispatch(setCartItemsStart(cartItems, product, activeColor, selectedSize));
 
   return (
     <section className="flex flex-col justify-start">
@@ -57,7 +66,7 @@ const ProductDetails: FC<ProductDetailsProps> = (props) => {
         isOnSale={product.sale}
       />
       <ProductColors
-        className="my-8 -order-1 md:order-none"
+        className="mt-0 mb-8 md:my-8 -order-1 md:order-none"
         colors={product.images}
         activeColor={activeColor}
         handleMouseEnter={handleColorChange}
@@ -86,11 +95,12 @@ const ProductDetails: FC<ProductDetailsProps> = (props) => {
       <div className="mt-4">
         <Button
           variant={"default"}
-          className="w-full rounded-sm font-heading capitalize"
+          className="w-full"
           aria-label="add to cart"
           size={"lg"}
+          onClick={addItemToCart}
         >
-          Add to cart
+          {isLoading ? <Spinner /> : "Add to cart"}
         </Button>
       </div>
     </section>

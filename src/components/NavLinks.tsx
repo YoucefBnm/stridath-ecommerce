@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 const NavLinkItem = (props: NavSubmenu) => {
   return (
     <NavigationMenuItem className="rounded-none border-none">
-      <NavigationMenuTrigger className="font-heading uppercase text-sm">
+      <NavigationMenuTrigger className="font-heading capitalize text-sm">
         {props.title}
       </NavigationMenuTrigger>
       <NavigationMenuContent className="bg-white rounded-none border-t border-gray-100 max-h-[400px]">
@@ -25,7 +25,7 @@ const NavLinkItem = (props: NavSubmenu) => {
           <ul className="flex py-8 col-span-8 justify-evenly">
             {props.submenu.map((submenuItem) => (
               <div key={submenuItem.id} className="flex flex-col gap-4">
-                <h3 className="font-heading uppercase text-sm font-medium text-gray-500">
+                <h3 className="font-heading capitalize text-sm font-medium text-gray-500">
                   {submenuItem.title}
                 </h3>
                 <ul className="flex flex-col gap-4">
@@ -86,7 +86,7 @@ const NavLinks = () => {
         />
         <NavigationMenuItem>
           <Link
-            className={`${navigationMenuTriggerStyle()} text-sm font-heading uppercase`}
+            className={`${navigationMenuTriggerStyle()} text-sm font-heading capitalize`}
             to="/shop/isFeatured/featured"
           >
             Featured
@@ -95,7 +95,7 @@ const NavLinks = () => {
 
         <NavigationMenuItem>
           <Link
-            className={`${navigationMenuTriggerStyle()} text-sm font-heading uppercase text-red-500`}
+            className={`${navigationMenuTriggerStyle()} text-sm font-heading capitalize text-red-500`}
             to="/shop/isOnsale/sale"
           >
             Sale

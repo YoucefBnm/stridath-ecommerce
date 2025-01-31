@@ -33,12 +33,12 @@ const NavMobileDrawer: FC<NavMobileDrawerProps> = ({ title, submenu }) => {
             <XIcon />
           </DrawerClose>
         </DrawerHeader>
-        <ul className="flex flex-col items-start gap-2 px-6">
+        <ul className="flex flex-col items-start px-6">
           {submenu.map((item) =>
             item.links.map((link) => (
               <DrawerClose
                 onClick={() => navigate(link.route)}
-                className="font-heading capitalize text-sm"
+                className={`${navigationMenuTriggerStyle()} font-heading capitalize text-sm`}
                 key={link.id}
               >
                 {link.title}

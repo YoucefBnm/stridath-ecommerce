@@ -122,9 +122,9 @@ const HeroCta = ({ link, label, children, className }: HeroCtaProps) => {
     >
       <Button
         size={"lg"}
+        className="capitalize"
         variant="secondary"
         aria-label={`navigate to ${label} page`}
-        className="uppercase font-heading font-medium rounded-sm"
         onClick={navigateToLink}
       >
         {label}

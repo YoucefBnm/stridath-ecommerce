@@ -29,9 +29,9 @@ const ProductFeatures: FC<ProductFeaturesProps> = ({ features, className }) => {
       <Button
         onClick={toggleExpand}
         variant={"link"}
-        className="self-start text-xs p-1 text-blue-900"
+        className="self-start font-heading text-xs p-1 text-blue-900"
       >
-        {isExpanded ? "See Less" : "See More"}
+        {isExpanded ? "see less" : "see more"}
       </Button>
     </div>
   );

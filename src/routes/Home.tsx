@@ -31,7 +31,6 @@ const Home = () => {
         <HeroDescription />
         <HeroCta link="/shop/men" label="shop men">
           <Button
-            className="uppercase font-heading font-medium rounded-sm"
             variant="secondary"
             size="lg"
             aria-label="navigate to women page"
