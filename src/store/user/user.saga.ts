@@ -5,6 +5,7 @@ import {
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
   signOutUser,
+  updateCurrentUserInfo,
 } from "@/firebase/user/user";
 
 import { call, all, takeLatest, put } from "typed-redux-saga";
@@ -12,6 +13,7 @@ import {
   EmailSignInStart,
   SignUpStart,
   SignUpSuccess,
+  UpdateProfileStart,
   USER_ACTION_TYPES,
 } from "./user.types";
 import { AuthError, User } from "firebase/auth";
@@ -20,6 +22,7 @@ import {
   signInSuccess,
   signOutSuccess,
   signUpSuccess,
+  updateProfileSuccess,
 } from "./user.action";
 import { AdditionalInfo } from "@/firebase/types";
 import { toast } from "sonner";
@@ -89,6 +92,30 @@ export function* signInWithEmail({
   }
 }
 
+export function* updateProfile({
+  payload: { password, displayName, email },
+}: UpdateProfileStart) {
+  try {
+    const updateUserProfile = yield* call(
+      updateCurrentUserInfo,
+      password,
+      displayName,
+      email
+    );
+
+    if (updateUserProfile) {
+      yield* put(updateProfileSuccess(updateUserProfile));
+      toast.success("Profile updated successfully");
+    }
+  } catch (error) {
+    yield* put(authFailed(error as AuthError));
+    if (isAuthError(error)) {
+      toast.error(error.code);
+    } else {
+      toast.error("An error occurred while updating profile");
+    }
+  }
+}
 export function* isUserAuthenticated() {
   try {
     const userAuth = yield* call(getCurrentUser);
@@ -177,6 +204,10 @@ export function* onSignOutStart() {
   yield* takeLatest(USER_ACTION_TYPES.SIGN_OUT_START, signOut);
 }
 
+export function* onUpdateProfileStart() {
+  yield* takeLatest(USER_ACTION_TYPES.UPDATE_PROFILE_START, updateProfile);
+}
+
 export function* userSagas() {
   yield* all([
     call(onCheckUserSession),
@@ -185,5 +216,6 @@ export function* userSagas() {
     call(onSignUpStart),
     call(onSignUpSuccess),
     call(onSignOutStart),
+    call(onUpdateProfileStart),
   ]);
 }

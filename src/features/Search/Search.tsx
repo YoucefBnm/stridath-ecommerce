@@ -7,9 +7,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
-import { IconSearch } from "@/assets";
 import SearchSuggetions from "./SearchSuggetions";
 import SearchResults from "./SearchResults";
+import { SearchIcon } from "lucide-react";
 
 const Search = () => {
   const { searchQuery, setSearchQuery, handleSearchChange } =
@@ -22,7 +22,8 @@ const Search = () => {
         className={`${navigationMenuTriggerStyle()} cursor-pointer`}
         asChild
       >
-        <img alt="search products" src={IconSearch} width={24} height={24} />
+        {/* <img alt="search products" src={IconSearch} width={24} height={24} /> */}
+        <SearchIcon />
       </SheetTrigger>
       <SheetContent className="!max-w-screen-md w-3/4 md:w-2/4">
         <SheetHeader className="mt-4">

@@ -13,7 +13,7 @@ const AuthInput: FC<AuthInputProps> = (props) => {
       name={name}
       render={({ field }) => (
         <div className="flex flex-col gap-2">
-          <FormLabel htmlFor={name} className="font-heading">
+          <FormLabel htmlFor={name} className="font-heading capitalize">
             {label}
           </FormLabel>
           <FormControl>

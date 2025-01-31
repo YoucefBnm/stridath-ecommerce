@@ -1,4 +1,8 @@
-import { authFormSchema, authType } from "@/utils/authFormSchema.utils";
+import {
+  authFormSchema,
+  authType,
+  loggedInFormSchema,
+} from "@/utils/authFormSchema.utils";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,6 +10,7 @@ import {
   emailSignInStart,
   googleSignInStart,
   signUpStart,
+  updateProfileStart,
 } from "@/store/user/user.action";
 import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,7 +30,14 @@ export function useHandleFormSubmit(type: authType) {
       password: "",
     },
   });
-
+  const loggedInForm = useForm<z.infer<typeof loggedInFormSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      displayName: currentUser?.displayName,
+      email: currentUser?.email,
+      password: "",
+    },
+  });
   const signInWithGoogle = async () => {
     try {
       dispatch(googleSignInStart());
@@ -51,9 +63,21 @@ export function useHandleFormSubmit(type: authType) {
     }
   };
 
+  const onUpdateUserInfo = async (data: z.infer<typeof loggedInFormSchema>) => {
+    try {
+      if (currentUser) {
+        const { password, displayName, email } = data;
+        dispatch(updateProfileStart(password, displayName, email));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return {
     form,
     signInWithGoogle,
     onSubmit,
+    loggedInForm,
+    onUpdateUserInfo,
   };
 }

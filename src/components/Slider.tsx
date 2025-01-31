@@ -49,7 +49,7 @@ const SliderIndicators: FC<SliderProps> = memo(
     );
 
     return (
-      <ul className="mt-4 lg-mt-24 mb-6 lg:mb-0 " id="slider-indics">
+      <ul className="mt-4 space-y-4 lg-mt-24 mb-6 lg:mb-0 " id="slider-indics">
         {slides.map((slide, index) => (
           <motion.li
             key={slide.id}

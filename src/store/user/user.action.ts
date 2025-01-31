@@ -4,14 +4,14 @@ import {
   CheckUserSession,
   EmailSignInStart,
   GoogleSignStart,
-  ResetPasswordStart,
-  ResetPasswordSuccess,
   SetCurrentUser,
   SignInSuccess,
   SignOutStart,
   SignOutSuccess,
   SignUpStart,
   SignUpSuccess,
+  UpdateProfileStart,
+  UpdateProfileSuccess,
   USER_ACTION_TYPES,
 } from "./user.types";
 import { AdditionalInfo, UserData } from "@/firebase/types";
@@ -36,13 +36,21 @@ export const signInSuccess = withMatcher(
   (user: UserData & { id: string }): SignInSuccess =>
     createAction(USER_ACTION_TYPES.SIGN_IN_SUCCESS, user)
 );
-export const resetPasswordStart = withMatcher(
-  (email: string): ResetPasswordStart =>
-    createAction(USER_ACTION_TYPES.RESET_PASSWORD_START, email)
+export const updateProfileStart = withMatcher(
+  (
+    password: string,
+    displayName?: string,
+    email?: string
+  ): UpdateProfileStart =>
+    createAction(USER_ACTION_TYPES.UPDATE_PROFILE_START, {
+      password,
+      displayName,
+      email,
+    })
 );
-export const resetPasswordSuccess = withMatcher(
-  (): ResetPasswordSuccess =>
-    createAction(USER_ACTION_TYPES.RESET_PASSWORD_SUCCESS)
+export const updateProfileSuccess = withMatcher(
+  (currentUser: User): UpdateProfileSuccess =>
+    createAction(USER_ACTION_TYPES.UPDATE_PROFILE_SUCCESS, { currentUser })
 );
 export const signUpStart = withMatcher(
   (email: string, password: string, displayName: string): SignUpStart =>

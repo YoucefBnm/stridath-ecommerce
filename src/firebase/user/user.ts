@@ -1,18 +1,30 @@
 import { auth, db, googleProvider } from "../services";
 import {
+  EmailAuthProvider,
   NextOrObserver,
   User,
   UserCredential,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  reauthenticateWithCredential,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   // signInWithRedirect,
   signOut,
+  updateEmail,
+  updateProfile,
 } from "firebase/auth";
 import { AdditionalInfo, UserData } from "../types";
-import { QueryDocumentSnapshot, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  QueryDocumentSnapshot,
+  collection,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
+import { toast } from "sonner";
 
 export const createAuthUserWithEmailAndPassword = async (
   email: string,
@@ -88,3 +100,42 @@ export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 export const signInWithGoogleRedirect = () =>
   signInWithPopup(auth, googleProvider);
+
+export const updateCurrentUserInfo = async (
+  password: string,
+  displayName?: string,
+  email?: string
+) => {
+  const currentUser = auth.currentUser;
+  if (!currentUser) {
+    throw new Error("No user is currently logged in");
+  }
+
+  // Prompt the user to enter their current password for reauthentication
+  if (!password) {
+    toast.info("Please enter your current password");
+  }
+
+  // Reauthenticate the user
+  const credential = EmailAuthProvider.credential(currentUser.email!, password);
+  await reauthenticateWithCredential(currentUser, credential);
+
+  const collectionRef = collection(db, "users");
+  const docRef = doc(collectionRef, currentUser.uid);
+
+  if (email) {
+    await updateEmail(currentUser, email);
+    await updateDoc(docRef, { email });
+  }
+
+  if (displayName) {
+    await updateProfile(currentUser, { displayName });
+    await updateDoc(docRef, { displayName });
+  }
+
+  // if (password) {
+  //   await updatePassword(currentUser, password);
+  // }
+
+  return currentUser;
+};

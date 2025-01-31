@@ -27,6 +27,11 @@ export const authFormSchema = (authType: authType) =>
         });
       }
     });
+export const loggedInFormSchema = z.object({
+  displayName: z.string().min(3).optional(),
+  email: z.string().email().optional(),
+  password: z.string().min(8),
+});
 
 // Custom type guard function without using `any`
 export function isAuthError(error: unknown): error is AuthError {

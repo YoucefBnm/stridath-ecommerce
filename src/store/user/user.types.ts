@@ -9,8 +9,8 @@ export enum USER_ACTION_TYPES {
   CHECK_USER_SESSION = "user/CHECK_USER_SESSION",
   GOOGLE_SIGN_IN_START = "user/GOOGLE_SIGN_IN_START",
 
-  RESET_PASSWORD_START = "user/RESET_PASSWORD_START",
-  RESET_PASSWORD_SUCCESS = "user/RESET_PASSWORD_SUCCESS",
+  UPDATE_PROFILE_START = "user/UPDATE_PROFILE_START",
+  UPDATE_PROFILE_SUCCESS = "user/UPDATE_PROFILE_SUCCESS",
 
   EMAIL_SIGN_IN_START = "user/EMAIL_SIGN_IN_START",
   SIGN_IN_SUCCESS = "user/SIGN_IN_SUCCESS",
@@ -44,12 +44,15 @@ export type SignInSuccess = ActionWithPayload<
   USER_ACTION_TYPES.SIGN_IN_SUCCESS,
   UserData
 >;
-export type ResetPasswordStart = ActionWithPayload<
-  USER_ACTION_TYPES.RESET_PASSWORD_START,
-  string
+export type UpdateProfileStart = ActionWithPayload<
+  USER_ACTION_TYPES.UPDATE_PROFILE_START,
+  { password: string; displayName?: string; email?: string }
 >;
-export type ResetPasswordSuccess =
-  Action<USER_ACTION_TYPES.RESET_PASSWORD_SUCCESS>;
+export type UpdateProfileSuccess = ActionWithPayload<
+  USER_ACTION_TYPES.UPDATE_PROFILE_SUCCESS,
+  { currentUser: User }
+>;
+
 export type SignOutStart = Action<USER_ACTION_TYPES.SIGN_OUT_START>;
 export type SignOutSuccess = Action<USER_ACTION_TYPES.SIGN_OUT_SUCCESS>;
 export type AuthFailed = ActionWithPayload<
