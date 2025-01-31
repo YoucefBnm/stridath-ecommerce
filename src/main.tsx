@@ -8,7 +8,7 @@ import { persistor, store } from "./store/store.ts";
 import { PersistGate } from "redux-persist/integration/react";
 import { Toaster } from "./components/ui/sonner.tsx";
 import { Elements } from "@stripe/react-stripe-js";
-import { stripePromise } from "./utils/stripe.utils.ts";
+import { stripePromise } from "./stripe/stripe.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

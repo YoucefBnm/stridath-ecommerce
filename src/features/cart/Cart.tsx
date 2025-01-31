@@ -18,7 +18,7 @@ const Cart = () => {
           <ShoppingCartIcon />
         </DrawerTrigger>
         {cartItemsCount > 0 && (
-          <div className=" bg-gray-950/80 text-white absolute right-2 top-0 -z-0 bg-opacity-80    pointer-events-none tracking-tighter flex justify-center items-center size-4 rounded-full text-[8px]  text-center">
+          <div className=" bg-gray-950/80 text-white absolute right-2 top-0 z-50  pointer-events-none tracking-tighter flex-center size-4 rounded-full text-[8px]">
             {cartItemsCount > 10 ? "+10" : cartItemsCount}
           </div>
         )}

@@ -22,7 +22,6 @@ const CartItemUtils: FC<CartUtilsProps> = ({ cartItem }) => {
   const decreaseQuantity = () =>
     dispatch(removeCartItemStart(cartItems, cartItem));
 
-  console.log(cartItem);
   return (
     <div className="grid max-w-min grid-cols-[32px_42px_32px] h-8 border border-gray-200 items-center">
       <Button

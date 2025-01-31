@@ -55,16 +55,18 @@ const CartWrap = () => {
           <h5 className="font-heading">Subtotal:</h5>
           <h5 className="font-heading text-right">${formatPrice(cartTotal)}</h5>
         </div>
-        <Button
-          variant={"default"}
-          size={"lg"}
-          className="w-full rounded-sm font-heading font-normal"
-          aria-label="proceed to checkout"
-          onClick={navigateToCheckout}
-          title="proceed to checkout"
-        >
-          Proceed to Checkout
-        </Button>
+        <DrawerClose>
+          <Button
+            variant={"default"}
+            size={"lg"}
+            className="w-full rounded-sm font-heading font-normal"
+            aria-label="proceed to checkout"
+            onClick={navigateToCheckout}
+            title="proceed to checkout"
+          >
+            Proceed to Checkout
+          </Button>
+        </DrawerClose>
       </DrawerFooter>
     </DrawerContent>
   );

@@ -26,4 +26,6 @@ dist-ssr
 *.sw?
 
 /hooks/useCreateProductsFilters.ts
-/assets/data.ts
+/src/assets/data.ts
+# Local Netlify folder
+.netlify
