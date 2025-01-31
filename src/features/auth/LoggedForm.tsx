@@ -24,7 +24,7 @@ const LoggedForm: FC<LoggedFormProps> = ({ currentUser, className }) => {
   const loading = useSelector(selectLoading);
 
   return (
-    <Card className={cn("relative overflow-hidden", className)}>
+    <Card className={cn("rounded-sm relative overflow-hidden", className)}>
       {loading && (
         <div className="absolute inset-0 size-full bg-gray-50/80 flex-center">
           <Spinner />
@@ -72,7 +72,7 @@ const LoggedForm: FC<LoggedFormProps> = ({ currentUser, className }) => {
               name="password"
             />
             <Button
-              className="w-full font-heading font-normal capitalize"
+              className="w-full font-heading font-normal capitalize rounded-sm"
               aria-label="Submit"
               type="submit"
               size={"lg"}

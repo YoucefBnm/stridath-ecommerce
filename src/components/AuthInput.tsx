@@ -18,6 +18,7 @@ const AuthInput: FC<AuthInputProps> = (props) => {
           </FormLabel>
           <FormControl>
             <Input
+              className="rounded-sm"
               placeholder={placeholder}
               type={isPassword ? "password" : "text"}
               id={name}

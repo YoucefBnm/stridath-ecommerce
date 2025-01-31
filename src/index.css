@@ -50,7 +50,8 @@ body {
 @layer components {
     .heading-xl {
         @apply font-heading font-medium leading-tight;
-        font-size: clamp(3.5rem, 4vw + 1.05rem, 7.2rem);
+        font-size: clamp(2.875rem, 2.3098rem + 2.8261vw, 4.5rem);
+
     }
 
     .heading-md {
@@ -60,7 +61,7 @@ body {
 
     .heading-base {
         @apply font-heading leading-tight;
-        font-size: clamp(1.75rem, 1.25vw + 1.25rem, 2.75rem);
+        font-size: clamp(1.375rem, 1.1576rem + 1.087vw, 2rem);
     }
 
     .heading-title {
@@ -107,7 +108,7 @@ input {
 }
 
 .header {
-    @apply bg-white px-default sticky z-50 inset-0 w-full h-16 justify-between border-b border-neutral-100
+    @apply bg-white px-default sticky z-50 inset-0 w-full h-16 justify-between border-b border-gray-100
 }
 
 .header-desktop {
@@ -149,4 +150,8 @@ input {
 
 .btn-text {
     @apply font-heading font-normal
+}
+
+::selection {
+    @apply bg-gray-800 text-white
 }

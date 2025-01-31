@@ -30,7 +30,7 @@ const VisitorForm: FC<VisitorFormProps> = ({ authType, className }) => {
   const loading = useSelector(selectLoading);
 
   return (
-    <Card className={cn("relative overflow-hidden", className)}>
+    <Card className={cn("relative overflow-hidden rounded-sm", className)}>
       {loading && (
         <div className="absolute inset-0 size-full bg-gray-50/80 flex-center">
           <Spinner />
@@ -118,7 +118,7 @@ const VisitorForm: FC<VisitorFormProps> = ({ authType, className }) => {
             )}
 
             <Button
-              className="w-full font-heading font-normal capitalize"
+              className="rounded-sm w-full font-heading font-normal capitalize"
               aria-label="Submit"
               type="submit"
               size={"lg"}
@@ -129,7 +129,7 @@ const VisitorForm: FC<VisitorFormProps> = ({ authType, className }) => {
         </Form>
         <Separator className="my-4" />
         <Button
-          className="w-full font-heading font-normal capitalize"
+          className="rounded-sm w-full font-heading font-normal capitalize"
           aria-label="sign in with google"
           variant={"outline"}
           size={"lg"}

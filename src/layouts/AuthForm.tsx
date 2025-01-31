@@ -11,9 +11,9 @@ const AuthForm = () => {
   const authType: authType = isAuthType(pathAuthType) ? pathAuthType : "signin"; // or "signup"
 
   const currentUser = useSelector(selectCurrentUser);
-  const cardStyles = "w-4/5 md:w-3/5 xl:w-2/5 relative overflow-hidden";
+  const cardStyles = "w-full md:w-3/5 xl:w-2/5 relative overflow-hidden";
   return (
-    <section className="bg-gray-50 min-h-svh px-default py-8 flex-center">
+    <section className="bg-gray-50  px-default py-12 flex-center">
       {currentUser ? (
         <LoggedForm className={cardStyles} currentUser={currentUser} />
       ) : (

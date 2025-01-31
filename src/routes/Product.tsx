@@ -12,13 +12,13 @@ const Product = () => {
     <main>
       {product ? (
         <section className="grid grid-cols-12 gap-6 px-default py-12">
-          <div className="col-span-8">
+          <div className="col-span-12 md:col-span-8">
             <ProductGallery
               productImages={product.images[activeColor].imagesUrl}
             />
           </div>
 
-          <div className="col-span-4 col-end-13">
+          <div className="col-span-12 md:col-span-4 col-end-13">
             <ProductDetails
               activeColor={activeColor}
               handleColorChange={handleColorChange}

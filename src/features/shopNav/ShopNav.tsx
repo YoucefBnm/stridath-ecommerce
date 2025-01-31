@@ -31,7 +31,7 @@ const ShopBreadcrumb: FC = () => {
   return (
     <Breadcrumb>
       <BreadcrumbList>
-        <BreadcrumbItem>
+        <BreadcrumbItem className="text-gray-400">
           <span>Shop</span>
         </BreadcrumbItem>
 
