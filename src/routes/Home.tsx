@@ -1,4 +1,4 @@
-import { SHOP_DATA } from "@/assets/data";
+// import { SHOP_DATA } from "@/assets/data";
 import {
   Hero,
   HeroBg,
@@ -6,10 +6,8 @@ import {
   HeroDescription,
   HeroHeading,
 } from "@/components/Hero";
-import Spinner from "@/components/Spinner";
 import { Button } from "@/components/ui/button";
 import { heroContent } from "@/constants/heroContent";
-import ProductCard from "@/features/product/ProductCard";
 // import { useCreateProductsFilters } from "@/hooks/useCreateProductsFilters";
 // import { useAddProudcts } from "@/hooks/useAddProduts";
 import Sports from "@/layouts/Sports";
@@ -42,12 +40,6 @@ const Home = () => {
         <HeroBg className="object-right-bottom" />
       </Hero>
       <Sports />
-      <div className="p-12">
-        <div className=" w-72">
-          <ProductCard product={SHOP_DATA[142]} />
-        </div>
-        <Spinner />
-      </div>
     </>
   );
 };
