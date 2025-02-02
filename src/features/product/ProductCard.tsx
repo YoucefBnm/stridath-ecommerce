@@ -121,7 +121,7 @@ const ProductCardDetails: FC<ProductCardDetailsProps> = ({
         {productName}
       </h4>
       <h5
-        className="font-heading text-xs text-gray-600 capitalize text-ellipsis truncate"
+        className="font-heading text-xs text-gray-600 capitalize w-full text-ellipsis truncate"
         title={`${productGender} ${productSport} ${productBrand}`}
       >
         {productGender} {productSport} {productBrand}
@@ -167,7 +167,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         productBrand={product.brand}
       />
       <ProductPrice
-        className="px-4"
+        className="px-4 flex-wrap"
         price={product.price}
         salePrice={product.salePrice}
         isOnSale={product.sale}

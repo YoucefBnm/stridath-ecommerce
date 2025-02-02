@@ -4,6 +4,7 @@ import {
   authFormSchema,
   loggedInFormSchema,
 } from "@/utils/authFormSchema.utils";
+import { Params } from "react-router-dom";
 
 export interface ProductSizeProps {
   size: string;
@@ -77,3 +78,9 @@ export interface AuthInputProps {
   label: string;
   placeholder?: string;
 }
+
+export type ProductsCarouselProps = {
+  title: string;
+  route: string;
+  params: Readonly<Params<string>>;
+};

@@ -1,3 +1,4 @@
+import { useRevealAnimation } from "@/hooks/useRevealAnimation";
 import {
   easeTransitions,
   TransformDirectionType,
@@ -13,11 +14,14 @@ type AnimatedTextProps = {
 };
 const AnimatedText = ({ text, direction, className }: AnimatedTextProps) => {
   const words = text.split(" ");
-
+  const { revealRef, isInView } = useRevealAnimation();
   return (
     <motion.div
+      ref={revealRef}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
       className={cn(
-        "overflow-hidden text-nowrap leading-none flex flex-wrap",
+        "overflow-hidden text-nowrap leading-none flex flex-wrap relative",
         className
       )}
     >

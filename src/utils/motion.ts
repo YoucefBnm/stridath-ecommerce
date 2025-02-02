@@ -10,7 +10,7 @@ export const transformVariants = (direction?: TransformDirectionType) => ({
     x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,
     y: direction === "top" ? "-100%" : direction === "bottom" ? "100%" : 0,
     scale: direction === "z" ? 0 : 1,
-    opacity: !direction ? 0 : 1,
+    opacity: 0,
   },
   visible: {
     x: 0,

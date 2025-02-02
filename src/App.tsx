@@ -11,6 +11,8 @@ const Auth = lazy(() => import("@/routes/Auth"));
 const Shop = lazy(() => import("@routes/Shop"));
 const Product = lazy(() => import("@routes/Product"));
 const Checkout = lazy(() => import("@routes/Checkout"));
+const NotFound = lazy(() => import("@routes/NotFound"));
+
 const MainNav = () => {
   const windowWidth = useWindowWidth();
 
@@ -33,6 +35,7 @@ function App() {
           />
           <Route path="/product/:productId" element={<Product />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>

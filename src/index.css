@@ -65,7 +65,7 @@ body {
     }
 
     .heading-title {
-        @apply font-heading uppercase text-sm font-normal tracking-widest text-left whitespace-nowrap -rotate-180 size-min py-4 block;
+        @apply font-heading uppercase text-sm font-normal tracking-widest text-left whitespace-nowrap -rotate-180 size-min block text-gray-600;
         writing-mode: vertical-lr;
     }
 }

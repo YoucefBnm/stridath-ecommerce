@@ -12,7 +12,7 @@ const Checkout = () => {
   const navigateToMenShop = () => navigate("/shop/men");
   const navigateToWomenShop = () => navigate("/shop/women");
   return (
-    <main className="px-default place-content-center gap-8 py-10 section-container">
+    <main className="px-default place-content-center py-10 section-container">
       {cartCount > 0 ? (
         <>
           <CheckoutPayment />

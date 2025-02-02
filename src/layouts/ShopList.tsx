@@ -20,7 +20,7 @@ export const ListCell = ({ isFetching, product }: ListCellProps) => {
   const { revealRef, isInView } = useRevealAnimation();
 
   return (
-    <motion.div variants={transformVariants()}>
+    <motion.div className="block relative" variants={transformVariants()}>
       {isFetching || !isInView ? (
         <motion.div
           initial="visible"
@@ -37,7 +37,7 @@ export const ListCell = ({ isFetching, product }: ListCellProps) => {
           <ProductCard product={product} />
         </motion.div>
       )}
-      <div className="mt-auto" ref={revealRef} />
+      <div className="absolute top-1/2 left-1/2" ref={revealRef} />
     </motion.div>
   );
 };

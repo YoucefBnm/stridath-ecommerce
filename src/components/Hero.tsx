@@ -90,10 +90,7 @@ const HeroDescription = ({ className }: HeroDescriptionProps) => {
   const { description } = useHeroContext();
   return (
     <motion.p
-      className={cn(
-        "max-w-[60vw] md:max-w-[33vw] leading-normal my-6",
-        className
-      )}
+      className={cn(className)}
       variants={transformVariants()}
       transition={{
         delay: 0.4,

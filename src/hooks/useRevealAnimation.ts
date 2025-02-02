@@ -6,7 +6,7 @@ export function useRevealAnimation() {
 
   const isInView = useInView(revealRef, {
     once: true,
-    amount: 0.25,
+    amount: 0.3,
   });
 
   return {

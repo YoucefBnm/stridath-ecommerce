@@ -27,18 +27,18 @@ const CartEmpty = () => {
         <div className="flex gap-2">
           <DrawerClose>
             <Button
-              size="lg"
               aria-label="navigate to men page"
               onClick={navigateToMenShop}
+              className="rounded-sm"
             >
               Shop Men
             </Button>
           </DrawerClose>
           <DrawerClose>
             <Button
-              size="lg"
               aria-label="navigate to women page"
               onClick={navigateToWomenShop}
+              className="rounded-sm"
             >
               Shop Women
             </Button>
